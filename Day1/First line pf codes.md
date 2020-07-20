@@ -48,41 +48,103 @@ But `print('hello'+8)` gives an error, because we cannot mix different types of 
 ## Python data types
 I am going to list the categories of data together with examples.
 - __Numeric__: Data with a numeric value. Three categories of numerics:
-  - Integer: Positive/negative integer
+  - Integer `int`: Positive/negative integer
   ```
   15
   8
   233333
   ```
-  - Float: Real number, whose fractional component is written as a decimal part or scienfic notation.
+  - Float `float` : Real number, whose fractional component is written as a decimal part or scienfic notation.
   ```
   1.5
   0.08
   2.33e7
   ```
-  - Complex number: A number `x+yj` or `x+yJ` with a real part `x` and an imaginary part `y`, where `x` and `y` are floats. 
+  - Complex number `complex`: A number `x+yj` or `x+yJ` with a real part `x` and an imaginary part `y`, where `x` and `y` are floats. 
   Note you must write 1j or 1J but not j or J.
   ```
   1+8j
   >>>1j*1j
   (-1+0j)
   ```
-- __Boolean__: Data with one of two built-in values `True` or `False`. Note T and F here must be capital.
+- __Boolean__ `bool`: Data with one of two built-in values `True` or `False`. Note T and F here must be capital.
+```True
+```
+- __Text type__ String `str` : A collection of one or more characters put in single, double or triple quotes
+```
+'Hello world!'
+```
 - __Sequence type__: A sequence is an ordered collection of same or different data types. 
-  - String: A collection of one or more characters put in single, double or triple quotes
-  - List: An ordered collection of one or more data items, not necessarily of the same type, put in square brackets.
-  - Tuple: An order collection of one or more data itmes, not necessarily of the same type, put in parentheses.
-- __Dictionary__: An unordered collection of data ina key:value pair form. A collection of such pairs is encloed in curly brackets.
+  - List `list`: An ordered collection of one or more data items, not necessarily of the same type, put in square brackets.
+  ```
+  ['apple', 'banana', 'orange']
+  ```
+  - Tuple `tuple`: An order collection of one or more data itmes, not necessarily of the same type, put in parentheses.
+  ```
+  ('apple', 'banana', 'orange')
+  ```
+  - Range `range`
+  ```
+  range(6)
+  ```
+- __Mapping type__ Dictionary `dict`: An unordered collection of data ina key:value pair form. A collection of such pairs is encloed in curly brackets.
 ```
 {1:'Steve', 2:'Bill', 3:'Ram', 4:'Farha'}
+{'name':'Emily', 'age':12}
 ```
-
+- __Set types__
+  - Set `set`
+  ```
+  {'apple', 'banana', 'orange'}
+  ```
+  - Frozenset `frozenset`
+  ```
+  frozenset({'apple', 'banana', 'orange'})
+  ```
+- __Binary types__
+  - Bytes`bytes`
+  ```
+  b'Hello'
+  ```
+  - Bytearray `bytearray`
+  ```
+  bytearray(5)
+  ```
+  - Memoryview `memoryview`
+  ```memoryview(bytes(5))
+  ```
+  
 There is a trick to look up the type of some data, shown as below
 ```
 >>>x=5
 >>>print(type(x))
 <class 'int'>
 ```
+
+You can assign a value(data type) to a variable by typing some of the examples above.
+```
+x='Hello world!'
+y=1.5
+z=False
+w=['apple', 'banana', 'orange']
+v={'name':'Emily', 'age':12}
+u=bytearray(5)
+t=True
+```
+You can also specify the data type using the constructor functions as below
+```
+x=str('Hello world!')
+y=float(1.5)
+z=bool(False)
+w=list(('apple', 'banana', 'orange'))
+v=dict(name='Emily', age=12)
+u=bytearray(5)
+t=bool(5)
+```
+Note that the codes of `range`, `bytes`, `bytearray`, and `memoryview` are exactly the same in the two expressions above;
+those of `dict`, `frozenset` and some others differ by a little bit. See [summary from W3 schools](https://www.w3schools.com/python/python_datatypes.asp) for the full list.
+Remark that `bool(0)` refers to `False`, while inputting any non-zero number it gives `True`. (to be confirmed)
+
 #### Keys
 - 
 - print()
