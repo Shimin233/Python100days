@@ -18,7 +18,7 @@ Together with Python, its default shell _IDLE_ will be downloaded automatically;
 ## Download Sublime Text
 This is a tool to help you type codes beforehand, in a tidy way.
 
-Download it from Sublime [Text website](https://www.sublimetext.com).
+Download it from [Sublime Text website](https://www.sublimetext.com).
 
 You can save your codes typed in _Sublime Text_ as txt. file, by simply clicking "save" in the menu of "file".
 Other formats like .py file are to be explored.
