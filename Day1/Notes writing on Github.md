@@ -13,4 +13,6 @@ Note that the blank " " is necessary, otherwise it will show
 ##a smaller title
 ######the smallest title
 
+![](Python100days/images/Mills_Modern_Business_Penmanship_image0.jpg)
+
 Other formatting tricks are explained [here](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax).
