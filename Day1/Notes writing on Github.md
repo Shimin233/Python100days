@@ -13,6 +13,9 @@ Note that the blank " " is necessary, otherwise it will show
 ##a smaller title
 ######the smallest title
 
+Try to quote a picture in the folder "Python100days". But 
+Q1 why does Safari show "?" instead of the picture?
+Q2 how to add an empty folder in my repo and AFTERWARDS add files in it?
 ![](Python100days/images/Mills_Modern_Business_Penmanship_image0.jpg)
 
 Other formatting tricks are explained [here](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax).
