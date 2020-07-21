@@ -30,7 +30,103 @@ To see help on some specific BIF, such as `input`,
 >>> help(input)
 ```
 
+## More about variables in Python
+In most of other programming languages, assignment of a value to a variable is called "storing a value in a variable". However, Python differs from other languages; it is closer to "sticking a value to a variable". Thus, we may say that there is no variables but "names" in Python. (Do not need to understand this in beginner Python courses)
 
+Let's play with variables with more examples.
+- Update the value assigned to a variable.
+  ```Python
+  >>> a=6 #print(a) gives 6
+  >>> b=7
+  >>> a=0 #print(a) gives 0 instead of 6
+  ```
+- Assign value of one variable to another.
+  ```Python
+  >>> a=6 #print(a) gives 6
+  >>> b=7
+  >>> c=a #print(c) gives
+  ```
+  Note the order of codes: `c=a` means assigning value of `a` to `c`; if replaced by `a=c`, which is assigning value of `c` to `a`, Python will wonder what is the value of `c`, and will report an error since `c` is not defined yet.
+- Use variables with values assigned to do calculations.
+  ```Python
+  >>> a=6 
+  >>> b=7
+  >>> s= a + b  #print(s) or equivalently, print(a+b) gives 6+7=13
+  
+  >>> a='hello'
+  >>> b='world'
+  >>> s= a + b  #print(s) or equivalently, print(a+b) gives 'helloworld'; while print(a+' '+b) gives 'hello world'; 字符串拼接
+  ```
+Note the difference between numerics' calculations and strings' combination (more rigorous term to be search)
+```Python
+>>> 2+3.33 #numerics
+5.33
+>>> '2'+'3.33' #strings
+'23.33'
+```
+To include quotes in your string, you can add a `\` before each of them
+```Python
+>>> 'Let\'s go! I\'m coming.'
+"Let's go! I'm coming."
+```
+and there is an alternative method to do this (tbc).
+
+More codes containing `\` are as below
+```Python
+# \ is used to let special symbol appear in a string
+>>> 'C:\now'  #every item is a part of this string
+'C:\now'
+>>> print('C:\now')  #here \n is recognized to start a new line
+C:
+ow
+>>> 'C:\\now'  #again every item is a part of this string
+'C:\\now'
+>>> print('C:\\now')  #here the first \ is to let the second \ appear 
+C:\now
+>>> r'C:\now\Applications\Python3'   #原始字符串，add r before a string to let multiple \'s appear in this string; but cannot have a \ at the end of this string using this method
+'C:\\now\\Applications\\Python3'    #all the \'s are doubled??
+#to have a \ at the end while letting multiple \'s in a string, you may add a space after the ending \
+>>> r'C:\now\Applications\Python3\ '
+'C:\\now\\Applications\\Python3\\ '
+#So, how to avoid this space? Have tested combining with '\', failed; TBC
+
+# \n is used to start a new line
+>>> '''this is
+to test
+multiple lines
+'''
+'this is\nto test\nmultiple lines\n'   #Python rewrites multiple-line string using \n
+
+>>> print('this is\nto test\nmultiple lines\n')  
+this is
+to test
+multiple lines
+                    #note the automatically added last \n creates a new (empty) line here
+                    
+>>> print('''this is
+to test
+multiple lines
+''')                #alternative method to print a multiple-line string, equivalent to the last one
+this is
+to test
+multiple lines
+                    #again, the last \n is automatically added, creating a new (empty) line here
+>>> 
+```
+From the codes above, we can see two equivalent expressions of one multiple-line string in Python: 
+```Python
+'''this is
+to test
+multiple lines
+'''
+```
+and `'this is\nto test\nmultiple lines\n'`; both are printed as 
+```Python
+this is
+to test
+multiple lines
+                
+```
 ### Keys
 - `==` means "equating", while `=` means value assingnment
 
