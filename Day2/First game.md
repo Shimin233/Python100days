@@ -14,7 +14,11 @@ Save this file (command + S) in a new folder called Day2 in the folder Python100
 
 Click the "Run" menu and then Run module (F5, = fn + F5). You will see the shell is running your program.
 
-Note that the sign ":" will create indents in the follwoing lines automatically.
-Remark, the cycles in Python are recognized by proper indents. For example, the "if else" cycle in the codes above, requires indents 
-in front of the "print()".
+Here, the sign `==` means "equating", while `=` means value assingnment.
+There are 
+Note that the sign `:` will create indents in the follwoing lines automatically.
+Remark, the cycles in Python are recognized by proper indents. For example, the `if ... else` cycle in the codes above, requires indents 
+in front of the operations corresponding to `if` and `else` (`print()` here).
 
+### Keys
+- `==` means "equating", while `=` means value assingnment
