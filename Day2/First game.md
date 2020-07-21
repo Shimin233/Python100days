@@ -21,6 +21,16 @@ Note that the sign `:` will create indents in the follwoing lines automatically.
 Remark, the cycles in Python are recognized by proper indents. For example, the `if ... else` cycle in the codes above, requires indents 
 in front of the operations corresponding to `if` and `else` (printing two items for `if` and one for `else` here).
 
+We have used some of the __built-in functions(BIFs)__, such as `print()`, `input()`, `int()`. To see how many BIFs existing in Python,
+```Python
+>>> dir(__builtins__)
+```
+To see help on some specific BIF, such as `input`,
+```Python
+>>> help(input)
+```
+
+
 ### Keys
 - `==` means "equating", while `=` means value assingnment
 
