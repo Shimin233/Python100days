@@ -76,10 +76,10 @@ while guess != 8:
 print('The End')
 ```
 Now the game will repeat infinitely many times until you guess `8`.
-Now another problem occurs: in the first turn, no matter your guess is correct or nor, it will ask you to `guess again`, then enters the two cycles telling `too large` or `too small`. (I guess we needs more advanced technique) To be fixed later...
+Now another problem occurs: in the first turn, no matter your guess is correct or nor, it will ask you to `guess again`, then enters the two cycles telling `too large` or `too small`. (I guess we needs more advanced technique) You can find this fixed later in _Exercise2_ in this file.
 
 _Exercise1: If we would like to allow only one extra trial, how to do that?_
-_See the end of this file for my solution._
+_See the end of this file for my solutions for all exercises._
 
 You may use `and` operator; input two booleans and it outputs one boolean.
 ```Python
@@ -95,11 +95,13 @@ False
 ```
 ## Improvement3: Random module随机模块
 You may have noticed that the codes of our first game are typed in a field called "module". Now we introduce another tool called random module, which is used in our "module" field. 
+
 I feel the "modules" in Python can refer to two things: the first is a package containing previously defined functions and other tools (just like the packages in LaTeX), such as the random module; the second is the field where we type codes of a program, distinct from the shell where we interact with the program by inputting.
-We are going to use the function `randient()` in the random module, which gives a random integer. Again in the module where we have typed our codes of the game
+
+We are going to use the function `randint()` in the random module, which gives a random integer. Again in the module where we have typed our codes of the game
 ```Python
 import random    #import the random module before
-secret = random.randient(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
+secret = random.randint(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
 print('---------My first game---------')
 temp=input('Guess one number:')
 guess=int(temp)
@@ -120,6 +122,12 @@ print('The End')
 There is an embarrassing case in the codes above: if the randomly generated value of `secret` is exactly the guess, it will directly print `The End`, which is very confusing. So, the following exercise is to improve the codes.
 
 _Exercise2: Revise the codes such that if the first guess is correct, then there will be "Right!" "Happy guessing!" printed._
+
+## Keys
+- Three techniques to improve our game
+  - Conditional branching
+  - While cycle
+  - Random module
 
 ## My solutions to the exercises
 Exercise1
@@ -147,29 +155,63 @@ print('The End')
 ```
 
 Exercise2
+_Let's go through the whole program. There are at least a sequence of two `if...else` cycles that tells whether `guess ==, > or < secret`; call the one for `==` as the cycle A, and the one for `>, <` as the cycle B.
+
+A problem observed before is that no matter the first guess is correct or not, the program always asks for a second guess. This is fixed by moving `temp=input('Guess again:')   guess=int(temp)` to the end of the `while` cycle. Note it should be of the same level as the first `if...else` that tells `==`.
+
+The game goes to "The End" only when the latest guess is the same as the `secret`, which is followed by "Right!" "Happy guessing!"; thus I put "Right!" "Happy guessing!" right before "The End" at the end of the whole game. Also, it seems that I must put something as the operations in the case of `if guess == secret`, so I let it print nothing `print('')`.
+
+When the guess is not correct, we should keep repeating the two cycles A and B. Thus the condition of `while` cycle is `guess != secret`. 
+
+Each time the guess is different from the `secret`, it enters the `if...else` that tells the guess is too large or small, then allows another guess; afterwards, again go through the cycles A and B. Thus the `while` cycle should contain the sequence of the cycles A and B inside.
+
+But in the case of the first guess being correct, we can choose not to enter the `while` cycle at all; thus I add one more `if...else` in the beginning, called cycle A'._
+
 ```Python
 import random    #import the random module before
-secret = random.randient(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
+secret = random.randint(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
+print('---------My first game---------')
+temp=input('Guess one number:')
+guess=int(temp)
+if guess == secret:            #cycle A'; tell whether we need to enter the while cycle
+    print('')
+else:     
+    while guess != secret:          
+        if guess== secret:      #cycle A
+            print('')
+        else:    
+            if guess > secret:  #cycle B
+                print('Too large')
+            else:
+                print('Too small')
+        temp=input('Guess again:')
+        guess=int(temp)
+print('Right!')
+print('Happy guessing!')
+print('The End')
+```
+Note that the condition of `while` cycle seems redundant. Because when the first guess is incorrect and thus we enter the `while` cycle for the first time, guess must not equal `secret`; but this condition plays its key role by telling whether the updated guess needs to stay in `while` cycle and another guess is allowed. 
+
+Now the cycle A seems unnecessary, since staying in `while` cycle means guess must not equal `secret`. So we make our final revision!
+```Python
+import random    #import the random module before
+secret = random.randint(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
 print('---------My first game---------')
 temp=input('Guess one number:')
 guess=int(temp)
 if guess == secret:
-    print('Right!')
-    print('Happy guessing!')
-else: 
-    while 
-    temp=input('Guess again:')
-    guess=int(temp)
-    if guess== secret:
-        print('Right!')
-        print('Happy guessing!')
-    else:
+    print('')
+else:     
+    while guess != secret:
         if guess > secret:
             print('Too large')
         else:
             print('Too small')
+        temp=input('Guess again:')
+        guess=int(temp)
+print('Right!')
+print('Happy guessing!')
 print('The End')
 ```
-
 
 
