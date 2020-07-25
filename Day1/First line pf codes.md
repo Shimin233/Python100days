@@ -100,7 +100,7 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   ```
   This also reveals that we may mix integers and floats (which are both numerics) but not strings and numerics (shown by `'hello'+8` before);
   i.e. _subcategories_ are mixable but _categories_ are not (to be confirmed).
-- __Boolean__ `bool`: Data with one of two built-in values `True` or `False`. Note T and F here must be capital.
+- __Boolean__ `bool`: Data with one of two built-in values `True` or `False`. They are actually a special type of integers. Note T and F here must be capital.
 ```Python
 True
 bool(3<5) #equals True, verified as follows
@@ -116,6 +116,7 @@ bool(0) #equals False
 bool(2.33e5) #equals True
 ```
 Remark that `bool(0)` refers to `False`, while inputting any non-zero number it gives `True`. (to be confirmed)
+Remark, True and False can be used exactly as 1 and 0 resp. in numeric calculations, like `True + False`, which gives `1`.
 - __Text type__ String字符串型 `str` : A collection of one or more characters put in single, double or triple quotes, 
 where a quote can be either a single or double quotation mark.
 ```Python
