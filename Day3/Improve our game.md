@@ -8,14 +8,14 @@ We shall introduce more techniques to be prepared for improving the game.
 ## Conditional branching条件分支
 Recall the following operators
 
-|Python Comparison Operators|
-|----- | ------------------------|
-| > | strictly larger than|
-| >= | no smaller than|
-| < | strictly smaller than|
-| <= | no larger than|
-| == | equals|
-| != | does not equal|
+|Python Comparison Operators|      Description        |
+|---------------------------| ------------------------|
+| `>`                       | strictly larger than|
+| `>=`                      | no smaller than|
+| `<`                       | strictly smaller than|
+| `<=`                      | no larger than|
+| `==`                      | equals|
+| `!=`                      | does not equal|
 
 As we have seen before, `1<5` will be interpreted as `True`, and other comparison operators work similarly.
 
