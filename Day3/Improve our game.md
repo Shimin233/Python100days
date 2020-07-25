@@ -10,12 +10,12 @@ Recall the following operators
 
 Python Comparison Operators
 ----- | ------------------------
-> | strictly larger than
->= | no smaller than
-< | strictly smaller than
-<= | no larger than
-== | equals
-!= | does not equal
+ > | strictly larger than
+ >= | no smaller than
+ < | strictly smaller than
+ <= | no larger than
+ == | equals
+ != | does not equal
 
 As we have seen before, `1<5` will be interpreted as `True`, and other comparison operators work similarly.
 
