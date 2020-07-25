@@ -178,11 +178,20 @@ stuff
   memoryview(bytes(5))
   ```
   
-There is a trick to look up the type of some data, shown as below
+There is a function `type()` to look up the type of some data, shown as below
 ```Python
 >>>x=5
->>>print(type(x))
+>>>print(type(x)) #or just type(x)
 <class 'int'>
+```
+Also, there is a function `isinstance()` to compare whether a data(?) is of an assumed type
+```Python
+>>> isinstance('233', str)
+True
+>>> isinstance(233, str)
+False
+>>> isinstance(233.3, bool)
+False
 ```
 
 ### Assign a date type to a variable
@@ -211,19 +220,32 @@ those of `dict`, `frozenset` and some others differ by a little bit. See [summar
 
 ### Change the data type
 Additionally, you can change the type of some data.
-- `int()`: transform a numeric or a string to an integer; system can be specified
-- `float()`: transform a string to a float
-- `str()`: transform an item to a string
+- `int()`: transform a numeric or a string to an integer; system (e.g. binary) can be specified
+- `float()`: transform a string or an integer to a float
+- `str()`: transform an arbitrary item to a string
 - `chr()`: transform an integer to its corresponding string (as one single string)(?)
 - `ord()`: transform one single string to its corresponding integer
+For example,
 ```Python
 >>> int(2.9)
 2  
 >>> int(2.33e2)
 233    #simply keep the integer part of a float
+>>> float(520)
+520.0
+>>> float('520')
+520.0
+>>> str(5.99)
+'5.99'
+>>> str(5e19)
+'5e+19'
+>>> str(5e-19)
+'5e-19'
 >>> chr(1)
 '\x01'
 ```
+Remark, we can use an existing function as a variable, like `str=5.99`; but it will cause problems, for example, you cannot use `str()` as it was originally, but only can use it as the variable you defined. So, avoid naming a variable as an existing function.
+
 ## Name the variables
 A variable is an item to which we assign data. For example, the `x`, `y`, ..., `t` we had in the last section. There are some rules to name a variable.
 - Basic rules
@@ -240,6 +262,7 @@ A variable is an item to which we assign data. For example, the `x`, `y`, ..., `
 - print()
 - Data types
   - _Subcategories_ are mixable but _categories_ are not
+  - `type()` and `isinstance()`
   - Assign data to variables
   - Change the data type
 - Name the variables
