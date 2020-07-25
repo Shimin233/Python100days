@@ -9,7 +9,7 @@ We shall introduce more techniques to be prepared for improving the game.
 Recall the following operators
 
 Python Comparison Operators
--|------------------------
+- | ------------------------
 >|strictly larger than
 >= |    no smaller than
 < |    strictly smaller than
