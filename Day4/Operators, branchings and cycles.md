@@ -77,7 +77,7 @@ This category includes `and`, `or` and `not`.
 True
 >>> True or False
 True
->>> Fase or False
+>>> False or False
 False
 
 >>> not False
