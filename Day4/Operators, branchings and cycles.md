@@ -39,6 +39,26 @@ A trick to simplify the assignment of one value to multiple variables.
 ```Python
 >>> a = b = c = d = 10 #assign a=10, b=10, ..., d=10
 ```
+Note that for the division `/`, Python 3 has the 'real' division instead of the floor division, which are used in older versions of Python and many other languages. That is, we will get a float/integer which equals exactly the ratio of two integers, while the floor division only gives the largest integer which are smaller than the real ratio (its 'floor' value), approximating the ratio.
+
+If you prefer the floor division, you may use `//` to do the floor division.
+```Python
+>>> 10//8
+1
+>>> 3.0//2
+1.0
+```
+To take the remainder after division, we use the form `dividend % divisor`.
+```Python
+>>> 5%2
+1     #5=2*1+1
+>>> 11%2
+1
+```
+
+
+
+1.0
 
 
 ## Branchings and cycles
