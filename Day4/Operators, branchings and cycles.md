@@ -121,9 +121,9 @@ To summarize for the beginners, it suffices to remember the following: (first to
 `*, /, %, //`\
 `+, -` used as addition, subtraction\
 `<, <=, >, >=, ==, !=` comparison operators\
-`and, or, not`\
+`and, or, not`
 
-Tip: to start a new line in .md file, you may type two spaces at the end of the previous line or use a '\' in the same position; more advice/methods see this question on [StackOverflow](https://stackoverflow.com/questions/33191744/how-to-add-new-line-in-markdown-presentation).
+Tip: to start a new line in .md file, you may type two spaces at the end of the previous line or use a '\' in the same position; but we do not need this when leaving one line empty to start a new paragraph. See more advice/methods see this question on [StackOverflow](https://stackoverflow.com/questions/33191744/how-to-add-new-line-in-markdown-presentation).
 
 
 ## Branchings and cycles
