@@ -39,14 +39,13 @@ We use index to obtain an elements from a list.
 ```
 Use a temporary variable to swap the positions of two elements.
 ```
->>> temp=member[0]
->>> member[0]=member[1]
+>>> temp=member[0]  #store 'elles' in temp
+>>> member[0]=member[1] #assign 'tu' to the original position of 'elles'
 >>> member
-
->>> member[1]=temp
-
+['tu', 'tu', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'ils', 'elle']
+>>> member[1]=temp #put 'elles back to the list
 >>> member
-
+['tu', 'elles', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'ils', 'elle']
 ```
  
 ### Delete elements in a list
