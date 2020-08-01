@@ -7,7 +7,7 @@ See the examples of a list.
 >>> mix=[1, 'me', 2.18, [1, 2, 3], 'right'] 
 >>> empty=[]
 ```
-
+### Add elements to a list
 To add one element to a list, we use `append()`, which acts on one item; to add multiple elements to a list, we use `extend`, though `extend` itself is a function acting on one item.
 ```Python
 >>> member.append('il')
@@ -29,3 +29,52 @@ To add one element and specify its position, we use `insert`, which acts on two 
 >>> member
 ['elles', 'tu', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'ils', 'elle']
 ```
+### Obtain elements from a list
+We use index to obtain an elements from a list.
+```Python
+>>> member[0]
+'elles'
+>>> member[1]
+'tu'
+```
+Use a temporary variable to swap the positions of two elements.
+```
+>>> temp=member[0]
+>>> member[0]=member[1]
+>>> member
+
+>>> member[1]=temp
+
+>>> member
+
+```
+ 
+### Delete elements in a list
+To remove an element, we use `remove()` by specifying the contents of that element; `del` by specifying the position of it; and `pop()` returning its value while simultaneously removing the last element (by default) in the list.
+
+```Python
+>>> member.remove('ils')
+>>> member
+['elles', 'tu', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'elle']
+>>> del member[1]
+>>> member
+['elles', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'elle']
+```
+```Python
+>>> mix=[1, 'me', 2.18, [1,2,3], 'right']
+>> mix.pop()
+'right'
+
+>>> mix
+[1, 'me', 2.18, [1, 2, 3]]
+>> mix2=[2, 'you', 'hi']
+>>> mix2.pop()
+'hi'
+>>> mix2
+[2, 'you']
+```
+
+
+## Keys
+- Add elements to a list
+- Obtain elements from a list
