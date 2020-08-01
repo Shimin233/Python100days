@@ -114,14 +114,16 @@ When `-` acts on one item, meaning 'negative' instead of 'minus, subtraction', i
 0.1111111111
 ```
 
-To summarize for the beginners, it suffices to remember the following: (first to last)
+To summarize for the beginners, it suffices to remember the following: (first to last)\
 `+, -` used as positive, negative (when thay are on the right of `**`)\
 `**`\
-`+, -` used as positive, negative
-`*, /, %, //`
-`+, -` used as addition, subtraction
-`<, <=, >, >=, ==, !=` comparison operators
-`and, or, not`
+`+, -` used as positive, negative\
+`*, /, %, //`\
+`+, -` used as addition, subtraction\
+`<, <=, >, >=, ==, !=` comparison operators\
+`and, or, not`\
+
+Tip: to start a new line in .md file, you may type two spaces at the end of the previous line or use a '\' in the same position; more advice/methods see this question on [StackOverflow](https://stackoverflow.com/questions/33191744/how-to-add-new-line-in-markdown-presentation).
 
 
 ## Branchings and cycles
