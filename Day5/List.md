@@ -29,7 +29,7 @@ To add one element and specify its position, we use `insert`, which acts on two 
 >>> member
 ['elles', 'tu', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'ils', 'elle']
 ```
-### Obtain elements from a list
+### Obtain an element from a list
 We use index to obtain an elements from a list.
 ```Python
 >>> member[0]
@@ -48,7 +48,7 @@ Use a temporary variable to swap the positions of two elements.
 ['tu', 'elles', 'Me', 'You', 'They', 'She', 'He', 'Nous', 'Vous', 'Je', 'il', 'ils', 'elle']
 ```
  
-### Delete elements in a list
+### Delete an element in a list
 To remove an element, we use `remove()` by specifying the contents of that element; `del` by specifying the position of it; and `pop()` returning its value while simultaneously removing the last element (by default) in the list.
 
 ```Python
@@ -72,8 +72,56 @@ To remove an element, we use `remove()` by specifying the contents of that eleme
 >>> mix2
 [2, 'you']
 ```
+We can also specify the position to remove a certain element.
+```Python
+>> mix.pop(3)
+[1, 2, 3]
+>>> mix
+[1, 'me', 2.18]
+```
+
+### Slice to obtain multiple elements
+We can create a copy which is a slice of the list by inputting the starting (by default 0; included in the slice) and the ending psoition (by default, after the ending element; excl.).
+```Python
+>>> member
+
+>>> member[1:3]
+
+>>> member #the original list remains intact
+
+>>> member[:3]
+
+>>> member[1:]
+
+>>> member[:]
+
+>>> member2=member[:] 
+>>> member2  #can create a copy of list using the slice
+
+```
+
+### Operators for lists
+We can compare two lists.
+```Python
+>>> list1=[123]
+>>> list2=[234]
+>>> list1 > list2
+False
+>>> list1=[123, 456]
+>>> list2=[234, 123]
+>>> list1 > list2  #by default, camparison is between the number 0 element of the two lists
+False
+>>> list3=[123, 456]
+>>> (list1 < list2) and (list1 == list3)  #True and True
+True
+>>> 
+
+```
+Lists' comparison compares strings via ASCLL codes.
 
 
 ## Keys
 - Add elements to a list
 - Obtain elements from a list
+- Delete elements in a list
+- Slice
