@@ -115,8 +115,8 @@ When `-` acts on one item, meaning 'negative' instead of 'minus, subtraction', i
 ```
 
 To summarize for the beginners, it suffices to remember the following: (first to last)
-`+, -` used as positive, negative (when thay are on the right of `**`)
-`**`
+`+, -` used as positive, negative (when thay are on the right of `**`)\
+`**`\
 `+, -` used as positive, negative
 `*, /, %, //`
 `+, -` used as addition, subtraction
