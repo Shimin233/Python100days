@@ -41,7 +41,7 @@ type(temp)
 ```
 
 ## Update a tuple
-We can slice a tuple in order to insert, remove elements of a tuple. We can delete a whole tuple using `del`.
+We can slice a tuple in order to insert, remove elements of a tuple. We can delete a whole tuple using `del`; but it is rare to use `del`, as Python recognizes the (un)availability of a variable.
 ```
 temp=('me', 'you', 'she', 'he')
 temp=temp[:2]+('they',)+temp[2:] #update by assigning a new item to temp, thus update temp; here () and, both matter, due to one element here
@@ -51,3 +51,13 @@ del temp
 temp #not defined
 
 ```
+The following operators apply to tuples.
++ (same type), *
+`in` `not in`
+`>, <, <=, >=`
+`and, or, not`
+
+## Strings
+
+
+
