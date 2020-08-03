@@ -2,18 +2,22 @@
 A tuple is similar to a list, but the elements of a tuple cannot be altered once it is defined. We shall study tuples through comparing it with lists.
 
 In terms of their forms, a tuple is typed with parentheses, while a list with brackets.
+```Python
+>>> tuple1=(1, 2, 3, 4, 5, 6, 7, 8)
+>>> tuple1
+(1, 2, 3, 4, 5, 6, 7, 8)
 ```
-tuple1=
-
-tuple1[1]
-
-tuple1[5:]
-
-tuple1[:5]
-
-tuple2=tuple1[:]
-tuple2
-
+We can also use index to visit an element of a tuple. But tuples do not support item (re)assignment, i.e. cannot be altered, in a general sense.
+```Python
+>>> tuple1[1]
+2
+>>> tuple1[5:]
+(6, 7, 8)
+>>> tuple1[:5]
+(1, 2, 3, 4, 5)
+>>> tuple2=tuple1[:]
+>>> tuple2
+(1, 2, 3, 4, 5, 6, 7, 8)
 tuple1[1]=3  #cannot be altered
 
 temp=(1)
@@ -175,9 +179,33 @@ str5.join('12345')
 #startswith(prefic[,start[,end]])
 
 #strip([chars])
+str7='    ssssslllll    '
+str7.strip()
 
+str7=str7.strip
+str7
+
+str7.strip('s')
+
+
+#swapcase() #swap upper/lowercase of the whole string
+
+#title() #return a titled string
+
+#translate(table) #translate the string according to the rules of table (can be specified by str.maketrans('a', 'b'))
+str7
+str7.translate(str.maketrans('s', 'a'))
+
+str.maketrans('s', 'a')
+#the ASCLL codes of s and a
+
+#zfill(width) #return a string of length=width, right-align the original string and fill the left with 0
 
 ```
 
 
-
+## Keys
+- Tuple
+  - Operators for tuples
+- String
+  - Operators for strings
