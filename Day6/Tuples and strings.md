@@ -58,6 +58,7 @@ The following operators apply to tuples.
 `and, or, not`
 
 ## Strings字符串
+### Slicing strings
 Slicing applies to strings, as it does to lists and tuples.
 ```
 str1='Hello world'
@@ -83,7 +84,7 @@ str1=str1[:6]+'string inserted'+str1[6:]
 str1
 
 ```
-
+### Operators for strings
 The operators `in` and `not in` apply to string like they do to lists and tuples.
 
 ```
@@ -126,7 +127,7 @@ str3.index('ere') #index(sub[,start[,end]]) #same as find(sub), but if sub is no
 
 #isdigit() #if a string has only numbers then True, else False
 
-#islower() #if a string contains at least one case-sensitive element and they are all lowercase, then True, else False
+#islower() #if a string contains at least one case-sensitive element and they are all lowercase, then True, else False; for non-Latin letters, like Chinese, it returns False since they have nothing to do with lower/uppercase
 
 #isupper() #if a string has at least one case-sensitive element and all of them are uppercase, then True, else False
 
@@ -135,6 +136,30 @@ str3.index('ere') #index(sub[,start[,end]]) #same as find(sub), but if sub is no
 #isspace() #if a string has only spaces, then True, else False
 
 #istitle() #if a string is titled (starts with an uppercase letter with all the rest lowercase), then True, else False
+str5='Hello World'
+str5.istitle()
+False
+str5='Hello world'
+str5.istitle()
+False
+
+#join(sub) #insert the string as separators between the elements of sub
+str5.join('12345')
+
+#ljust(width) #return a new string via left-aligning the string and fill spaces with width specified
+
+#lower() #lowercase all the letters in a string
+
+#upper() #uppercase all the letters in a string
+
+#istrip() #remove all the spaces on the left of the string
+
+#partition(sub) #find the sub, separate the string into a 3-element tuple (pre_sub, sub, fol_sub); if sub cannot be found, return ('originlstring', '', '')
+
+#replace(old,new[,count]) #replace old in a string with new; if specified using count, then replacement is made no more than count times.
+
+#rfind(sub[,start[,end]]) #similar to find(), except from the right
+
 
 
 ```
