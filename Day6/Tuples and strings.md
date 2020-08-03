@@ -19,7 +19,13 @@ We can also use index to visit an element of a tuple. But tuples do not support 
 >>> tuple2
 (1, 2, 3, 4, 5, 6, 7, 8)
 tuple1[1]=3  #cannot be altered
-
+Traceback (most recent call last):
+  File "<pyshell#115>", line 1, in <module>
+    tuple1[1]=3
+TypeError: 'tuple' object does not support item assignment
+```
+In general, the comma is necessary for Python to recognize a tuple, but not the parentheses. The parentheses matter only for an empty tuple.
+```Python
 temp=(1)
 temp
 type(temp) #parentheses not nece for a tuple
