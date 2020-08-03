@@ -158,8 +158,23 @@ str5.join('12345')
 
 #replace(old,new[,count]) #replace old in a string with new; if specified using count, then replacement is made no more than count times.
 
-#rfind(sub[,start[,end]]) #similar to find(), except from the right
+#rfind(sub[,start[,end]]) #like find(), but from the right
 
+#rindex(sub[,start[,end]]) #like index(), but from the right
+
+#rjust(width) #return a new string via right-aligning the string and filling spaces with width specified
+
+#rpartition(sub) #like partition(), but from the right
+
+#rstip() #delete the spaces at the end of the string
+
+#split(sep=None, maxsplit=-1) #
+
+#splitlines(([keepends))]
+
+#startswith(prefic[,start[,end]])
+
+#strip([chars])
 
 
 ```
