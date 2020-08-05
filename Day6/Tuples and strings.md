@@ -24,35 +24,48 @@ Traceback (most recent call last):
     tuple1[1]=3
 TypeError: 'tuple' object does not support item assignment
 ```
-In general, the comma is necessary for Python to recognize a tuple, but not the parentheses. The parentheses matter only for an empty tuple.
+In general, the comma is necessary for Python to recognize a tuple, but not the parentheses. The parentheses matter only for an empty tuple. But lists require both brackets and commas.
 ```Python
-temp=(1)
-temp
-type(temp) #parentheses not nece for a tuple
+>>> temp=(1)
+>>> temp
+1
+>>> type(temp) #parentheses not nece for a tuple
+<class 'int'>
+>>> temp2=1,2,3
+>>> type(temp2)
+<class 'tuple'>
+```
 
-temp2=
-
-type(temp2)  #, matters
-
-temp=()
-type(temp)# only when empty, parentheses matter
-
-temp=(1,)
-type(temp)
-
-temp=1,
-type(temp)
-
-8*(8)
+```Python
+>>> temp=()  # only to empty tuples, parentheses matter
+>>> type(temp)
+<class 'tuple'>
+>>> temp=[]   #empty list
+>>> type(temp)
+<class 'list'>
+```
+So there are two ways to type a non-empty tuple.
+```Python
+>>> type(temp)
+<class 'tuple'>
+>>> temp=1,
+>>> type(temp)
+<class 'tuple'>
+```
+Also, note that commas matter when making copies of tuples.
+```Python
+>>> 8*(8)  #(8) is an integer
 64
-8*(8,)  #here * acts as repeating the tuple (8, ) 8 times; , matters to a tuple
-
-
+>>> 8*8,  #(8*8), = (64,) a tuple
+(64,)
+>>> 8*(8,)
+(8, 8, 8, 8, 8, 8, 8, 8)  #here * acts as repeating the tuple (8, ) 8 times; , matters to a tuple
 ```
 
 ### Update a tuple indirectly
 We can slice a tuple in order to (indirectly) insert, remove elements of a tuple. We can delete a whole tuple using `del`; but it is rare to use `del`, as Python recognizes the (un)availability of a variable.
-```
+
+```Python
 temp=('me', 'you', 'she', 'he')
 temp=temp[:2]+('they',)+temp[2:] #update by assigning a new item to temp, thus update temp; here () and, both matter, due to one element here
 temp
