@@ -62,61 +62,67 @@ Also, note that commas matter when making copies of tuples.
 (8, 8, 8, 8, 8, 8, 8, 8)  #here * acts as repeating the tuple (8, ) 8 times; , matters to a tuple
 ```
 
-### Update a tuple indirectly
-We can slice a tuple in order to (indirectly) insert, remove elements of a tuple. We can delete a whole tuple using `del`; but it is rare to use `del`, as Python recognizes the (un)availability of a variable.
+### Slice and update a tuple
+We can slice a tuple in order to (indirectly) insert, remove elements of a tuple. We can delete a whole tuple using `del`; but it is rare to use `del` manually, as Python recognizes the (un)availability of a variable.
 
 ```Python
-temp=('me', 'you', 'she', 'he')
-temp=temp[:2]+('they',)+temp[2:] #update by assigning a new item to temp, thus update temp; here () and, both matter, due to one element here
-temp
-
-del temp
-temp #not defined
-
+>>> temp=('me', 'you', 'she', 'he')
+>>> temp=temp[:2]+('they',)+temp[2:] #note the addition + can only apply to items of the same type, here comma necessary to make ('they',) be a tuple
+>>> temp
+('me', 'you', 'they', 'she', 'he') #update by assigning a new item to temp, thus update temp; here () and, both matter, due to one element here
 ```
+```Python
+>>> del temp
+>>> temp
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    temp
+NameError: name 'temp' is not defined 
+```
+### Operators for tuples
 The following operators apply to tuples.
-+ (same type), *
+`+` (for items of the same type), `*`
 `in` `not in`
 `>, <, <=, >=`
 `and, or, not`
 
 ## Strings字符串
-### Slicing strings
+### Slice and update a string
 Slicing applies to strings, as it does to lists and tuples.
+```Python
+>>> str1='Hello world'
+>>> str1[:6]
+'Hello '
 ```
-str1='Hello world'
-str1[:6]
-
+Also, picking element by index is applicable to strings. You may notice the similarity between index and slicing in terms of forms (brackets).
+```Python
+>>> str1
+'Hello world'
+>>> str1[5]
+' '
+>>> str1[6]
+'w'
 ```
 
-```
-str1
-str1[5]
-
-str1[6]
-```
-
-It is usually hard to alter a string, like a tuple. However, we can slice a string to indirectly update it, which is actually creating a new copy of string and then re-assigning this new copy to the old variable.
-
-```
-str1[:6]+'string inserted'+str1[6:]
-
-str1
-
-str1=str1[:6]+'string inserted'+str1[6:]
-str1
-
+We cannot directly alter a string, like a tuple. However, we can slice a string to indirectly update it, which is actually creating a new copy of string and then re-assigning this new copy to the old variable.
+```Python
+>>> str1[:6]+'string inserted'+str1[6:]
+'Hello string insertedworld'
+>>> str1
+'Hello world'  #without reassignment, the originl str1 remains the same
+>>> str1=str1[:6]+'string inserted'+str1[6:]
+>>> str1
+'Hello string insertedworld'
 ```
 ### Operators for strings
 The operators `in` and `not in` apply to string like they do to lists and tuples.
-
-```
-str2='miao'
-str2.capitalize() #capitalize() #return a new string by changing the first letter in a string to uppercase
+```Python
+>>> str2='miao'
+>>> str2.capitalize() #capitalize() #return a new string by changing the first letter in a string to uppercase
 'Miao'
 ```
 
-```
+```Python
 str2='MiAomIaO'
 str2.casefold() #casefold() #return a new string by changing all the letters in a string to lowercase
 'miaomiao'
