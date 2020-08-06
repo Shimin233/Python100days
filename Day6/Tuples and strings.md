@@ -116,76 +116,127 @@ We cannot directly alter a string, like a tuple. However, we can slice a string 
 ```
 ### Operators for strings
 The operators `in` and `not in` apply to string like they do to lists and tuples.
+
+Let's introduce more operators applicable to strings. 
+- `capitalize()` returns a new string by changing the first letter in a string to uppercase
 ```Python
 >>> str2='miao'
->>> str2.capitalize() #capitalize() #return a new string by changing the first letter in a string to uppercase
+>>> str2.capitalize() 
 'Miao'
 ```
-
+- `casefold()` returns a new string by changing all the letters in a string to lowercase
 ```Python
-str2='MiAomIaO'
-str2.casefold() #casefold() #return a new string by changing all the letters in a string to lowercase
+>>> str2='MiAomIaO'
+>>> str2.casefold()
 'miaomiao'
 ```
+- `center(width)` creates a new string via putting the string in the middle and using spaces to fill with the specified width
+ ```Python
+>>> str2
+'MiAomIaO'
+>>> str2.center(40)
+'                MiAomIaO                '
 
+>>> str2.center(19)
+'      MiAomIaO     '
+ ```
+- `count(sub[,start[,end]])` returns the number of appearences of sub (substring), in the range between start and end (optional)
+```Python
+>>> str2
+'MiAomIaO'
+>>> str2.count('mi')
+0
+>>> str2.count('mI')
+1
 ```
-str2
-str2.center(40) #center(width)#create a new string via putting the string in the middle and using spaces to fill with the specified width
+- `encode(encoding='utf-8',errors='strict')` uses the method set by 'encoding=' to encode the specified strings (to be explained later)
 
-str2.count(mi) #count(sub[,start[,end]]) #return the number of appearences of sub (substring), in the range between start and end (optional)
-
-#encode(encoding='utf-8',errors='strict') #use the method set by 'encoding=' to encode the specified strings
-
-str2.endswith('ao')#endswith(sub[,start[,end]]) #tell whether a string ends with sub, in the range btw start and end (optional); if yes then True, else False
-str2.endswith('io')
-
-str3='hello\tworld'
-str3.expandtabs()#expandtabs([tabsize=8]) #replace the tabs(\t) with spaces; if the item is not specified, the number of spaces is 8 by default
-hello       world #there are 7 spaces between hello and world, since 8 spaces include the position of o
-
-str3.find('ere') #find(sub[,start[,end]]) #tell whether sub is in a string, in the range btw start and end (optional); if yes return its index (the index of the first letter of sub by default), else return -1
-str3.find('iao')
-
-str3.index('ere') #index(sub[,start[,end]]) #same as find(sub), but if sub is not in the string then return an error
-
-#isalnum() #if a string has at least one element and all of them are numerics or letters, then True, else False; isalnum() = isalpha() + isnumeric()
-
-#isalpha() #if a string has at least one element and all of them are letters, then True, else False
-
-#isdecimal() #if a string has only decimal (system) numbers then True, else False
-
-#isdigit() #if a string has only numbers then True, else False
-
-#islower() #if a string contains at least one case-sensitive element and they are all lowercase, then True, else False; for non-Latin letters, like Chinese, it returns False since they have nothing to do with lower/uppercase
-
-#isupper() #if a string has at least one case-sensitive element and all of them are uppercase, then True, else False
-
-#isnumeric() #if a string has only numerics, then True, else False
-
-#isspace() #if a string has only spaces, then True, else False
-
-#istitle() #if a string is titled (starts with an uppercase letter with all the rest lowercase), then True, else False
-str5='Hello World'
-str5.istitle()
+- `endswith(sub[,start[,end]])` tells whether a string ends with sub, in the range btw start and end (optional); if yes then True, else False
+```Python
+>>> str2
+'MiAomIaO'
+>>> str2.endswith('io')
 False
-str5='Hello world'
-str5.istitle()
+>>> str2.endswith('ao')
 False
+>>> str2.endswith('aO')
+True
+```
+- `expandtabs([tabsize=8])` replaces the tabs(\t) with spaces; if the item is not specified, the number of spaces is 8 by default
+```Python
+>>> str3='hello\tworld'
+>>> str3
+'hello\tworld'
+>>> print(str3)
+hello	world
+>>> str3.expandtabs()
+'hello   world'
+#there are 7 (mine is 3) spaces between hello and world, since 8 spaces include the position of o
+```
+- `find(sub[,start[,end]])` tells whether sub is in a string, in the range btw start and end (optional); if yes return its index (the index of the first letter of sub by default), else return -1
+```Python
+>>> str3
+'hello\tworld'
+>>> str3.find('ere')
+-1
+>>> str3.find('two')
+-1    #obviously \t is recognized as one item and the 't' is not a letter
+>>> str3.find('rld')
+8     #begin with h as the 0-th, \t as one (5-th) item, r is the 8-th
+```
+- `index(sub[,start[,end]])` is almost the same as find(sub), but if sub is not in the string then return an error
+```Python
+>>> str3.index('ere')
+Traceback (most recent call last):
+  File "<pyshell#67>", line 1, in <module>
+    str3.index('ere')
+ValueError: substring not found
+```
+- `isalnum()` if a string has at least one element and all of them are numerics or letters, then True, else False; isalnum() = isalpha() + isnumeric()
 
-#join(sub) #insert the string as separators between the elements of sub
-str5.join('12345')
+- `isalpha()` if a string has at least one element and all of them are letters, then True, else False
 
-#ljust(width) #return a new string via left-aligning the string and fill spaces with width specified
+- `isdecimal()` if a string has only decimal (system) numbers then True, else False
 
-#lower() #lowercase all the letters in a string
+- `isdigit()` if a string has only numbers then True, else False
 
-#upper() #uppercase all the letters in a string
+- `islower()` if a string contains at least one case-sensitive element and they are all lowercase, then True, else False; for non-Latin letters, like Chinese, it returns False since they have nothing to do with lower/uppercase
 
-#istrip() #remove all the spaces on the left of the string
+- `isupper()` if a string has at least one case-sensitive element and all of them are uppercase, then True, else False
 
-#partition(sub) #find the sub, separate the string into a 3-element tuple (pre_sub, sub, fol_sub); if sub cannot be found, return ('originlstring', '', '')
+- `isnumeric()` if a string has only numerics, then True, else False
 
-#replace(old,new[,count]) #replace old in a string with new; if specified using count, then replacement is made no more than count times.
+- `isspace()` if a string has only spaces, then True, else False
+
+- `istitle()` if a string is titled (starts with an uppercase letter with the first letter behind each space is capital), then True, else False
+```Python
+>>> str5='Hello World'
+>>> str5.istitle()
+True
+>>> str5='Hello world'
+>>> str5.istitle()
+False
+>>> str5='If The First Letter Behind Each Space Is Capital, Then It Is Titled?'
+>>> str5.istitle()
+True
+```
+- `join(sub)` inserts the string as separators between the elements of sub
+```Python
+>>> str5.join('12345')
+'1A title in general2A title in general3A title in general4A title in general5'
+```
+
+- `ljust(width)` returns a new string via left-aligning the string and fill spaces with width specified
+
+- `lower()` lowercases all the letters in a string
+
+- `upper()` uppercases all the letters in a string
+
+- `istrip()` removes all the spaces on the left of the string
+
+- `partition(sub)` finds the sub, separate the string into a 3-element tuple (pre_sub, sub, fol_sub); if sub cannot be found, return ('originlstring', '', '')
+
+- `replace(old,new[,count])` replaces old in a string with new; if specified using count, then replacement is made no more than count times.
 
 #rfind(sub[,start[,end]]) #like find(), but from the right
 
@@ -204,6 +255,7 @@ str5.join('12345')
 #startswith(prefic[,start[,end]])
 
 #strip([chars])
+```Python
 str7='    ssssslllll    '
 str7.strip()
 
