@@ -293,4 +293,6 @@ ValueError: substring not found
 - String
   - Slice and update a string
   - Operators for strings, 3 categories: 
-  1. Lower/uppercase, Contents, their formats and their positions, andAlter the string
+    1. Lower/uppercase
+  2. Contents, their formats and their positions
+  3. Alter the string
