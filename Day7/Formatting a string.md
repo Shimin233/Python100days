@@ -156,6 +156,6 @@ Moreover, we have some __escape characters__ 转义字符.
 - Formatting a string
   - Double braces to print a pair of braces without further interpretation `{{0}}.format('no further interpretation')`
   - More formatting commands, 3 categories
-  1. Basic ones acting like translators
-  2. Supplementary commands
-  3. Escape characters
+    1. Basic ones acting like translators
+    2. Supplementary commands
+    3. Escape characters
