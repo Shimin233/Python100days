@@ -101,8 +101,8 @@ TypeError: not enough arguments for format string
 '27.658'
 ```
 
-- Supplemantary commands of formatting, added to the commands above like `'%+m.ne' % 27.658`.
-  - `m.n` m means the printed minimal total width of the string, n means the number of decimal places
+There are also some __supplemantary commands of formatting__, added to the commands above like `'%+m.ne' % 27.658`.
+- `m.n` m means the printed minimal total width of the string, n means the number of decimal places
 ```Python
 >>> '%5.1f' % 27.658   #the output has one space in front since the minimal width is set as 5; 1 decimal place
 ' 27.7'
@@ -111,45 +111,51 @@ TypeError: not enough arguments for format string
 >>> '%10d' % 5         #the minimal width is set as 10; no decimal place
 '         5'
 ```
-  - `-` left-align
+- `-` left-align
 ```Python
 >>> '%-10d' % 5    #-=left-align, 10 = minimal width, d = integer
 '5         '
 ```
-  - `+` add a positive sign in front of the positive number(s)
+- `+` add a positive sign in front of the positive number(s)
 ```Python
 >>> '%+d' % 5  
 '+5'
 >>> '%+d' % -5  #no change to negative number
 '-5'
 ```
-  - `#` print `0o` in front of the octal numbers, and `0x` or `0X` in front of the hex numbers
+- `#` print `0o` in front of the octal numbers, and `0x` or `0X` in front of the hex numbers
 ```Python
  >>> '%#o' % 10  #0o = octal, 12 = the octal 12
 '0o12'
 >>> '%#x' % 108  #0x = hex, 6c = the hex 6c
 '0x6c'
 ```
-  - `0` fill 0's _in front of_ the printed numbers to replace spaces
+- `0` fill 0's _in front of_ the printed numbers to replace spaces
 ```Python
 >>> '%010d' % 5   #0 = fill 0's in front, 10 = minimal width, d = format integers
 '0000000005'
 >>> '%-010d' % 5  #- = left-align, 0 = fill 0's in front, 10 = minimal width, d = format integers; 0's are only filled in front so as to avoid changing 5 to 5000000000
 '5         '
 ```
-- Escape characters 转义字符
-  - `\'` a single quotation mark
-  - `\"` a double quotation mark
-  - `\a` bell sound
-  - `\b` backspace
-  - `\n` a newline
-  - `\t` a tab 横向制表符
-  - `\v` a vertical tab 纵向制表符
-  - `\r` return
-  - `\f` form feed 换页符
-  - `\o` octal system
-  - `\x` hexadecimal system
-  - `\0` a space
-  - `\\` an escape character itself
+Moreover, we have some __escape characters__ 转义字符.
+- `\'` a single quotation mark
+- `\"` a double quotation mark
+- `\a` bell sound
+- `\b` backspace
+- `\n` a newline
+- `\t` a tab 横向制表符
+- `\v` a vertical tab 纵向制表符
+- `\r` return
+- `\f` form feed 换页符
+- `\o` octal system
+- `\x` hexadecimal system
+- `\0` a space
+- `\\` an escape character itself
+
 ## Keys
 - Formatting a string
+  - Double braces to print a pair of braces without further interpretation `{{0}}.format('no further interpretation')`
+  - More formatting commands, 3 categories
+  1. Basic ones acting like translators
+  2. Supplementary commands
+  3. Escape characters
