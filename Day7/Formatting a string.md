@@ -101,5 +101,12 @@ TypeError: not enough arguments for format string
 '27.658'
 ```
 
+- Supplemantary commands of formatting
+  - `m.n`
+  - `-`
+  - `+`
+  - `#`
+  - `0`
+- Escape characters 转义字符
 ## Keys
 - Formatting a string
