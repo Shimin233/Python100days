@@ -34,20 +34,30 @@ We may talk about fixpoint定点数 a liitle bit here, using an example of forma
 '27.7GB'
 ```
 ### More formatting commands
-- `%c`
+- `%c` formats strings and their ASCII codes
+```Python
 
-- `%s`
 
-- `%d`
+```
+- `%s` formats strings
 
-- `%o`
+- `%d` formats integers
 
-- `%x`
+- `%o` formats octal numbers （无符号八进制数）
 
-- `%X`
+- `%x` formats hexadecimal numbers（无符号十六进制数）　
 
-- `%f`
+- `%X` formats capital hexadecimal numbers（无符号大写十六进制数）
 
-- `%e`
+- `%f` formats fixpoints, the number of decimal places can be specified
+
+- `%e` formats fixpoints using scientific notation
+
+- `%E` same as `%e` but uses capital E instead of e
+
+- `%g` uses `%f` or `%e` according to the value
+
+- `%G` uses `%f` or `%E` according to the value
+
 ## Keys
 - Formatting a string
