@@ -102,11 +102,11 @@ TypeError: not enough arguments for format string
 ```
 
 - Supplemantary commands of formatting
-  - `m.n`
-  - `-`
-  - `+`
-  - `#`
-  - `0`
+  - `m.n` m means the printed minimal width, n means the number of decimal places
+  - `-` left-align
+  - `+` add a positive sign in front of the positive number(s)
+  - `#` print `0` in front of the octal numbers, and `0x` or `0X` in front of the hex numbers
+  - `0` fill 0's before the printed numbers to replace spaces
 - Escape characters 转义字符
   - `\'` a single quotation mark
   - `\"` a double quotation mark
