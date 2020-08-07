@@ -34,30 +34,72 @@ We may talk about fixpoint定点数 a liitle bit here, using an example of forma
 '27.7GB'
 ```
 ### More formatting commands
+The following commands act like different translators, who interpret a same sentences in their own ways.
 - `%c` formats strings and their ASCII codes
 ```Python
+#%c interprets 97 by its corresponding letter a
+>>> '%c' % 97  
+'a'
 
-
+#interpret multiple items, use a tuple to type them; otherwise hard for Python to understand
+>>> '%c %c %c love' % (97,98,99)
+'a b c love'
+>>> '%c %c %c love' % 97,98,99
+Traceback (most recent call last):
+  File "<pyshell#107>", line 1, in <module>
+    '%c %c %c love' % 97,98,99
+TypeError: not enough arguments for format string
 ```
 - `%s` formats strings
-
+```Python
+>>> '%s' % 'What' #%s thinks it ok to print this string directly
+'What'
+```
 - `%d` formats integers
-
+```Python
+>>> '%d + %d = %d' % (4, 5, 4+5)  #when printing as interpreted by %d, also compute 4+5 as 9 automtically
+'4 + 5 = 9'
+```
 - `%o` formats octal numbers （无符号八进制数）
-
+```Python
+>>> '%o' % 10  #since 10= 1*2 + 8*1 + 8^2 * 0 + 0 
+'12'
+>>> '%o' % 7
+'7'
+>>> '%o' % 8
+'10'
+```
 - `%x` formats hexadecimal numbers（无符号十六进制数）　
-
 - `%X` formats capital hexadecimal numbers（无符号大写十六进制数）
-
+```Python
+>>> '%x' % 10
+'a'
+>>> '%X' % 10
+'A'
+>>> '%X' % 160
+'A0'
+>>> '%X' % 11
+'B'
+```
 - `%f` formats fixpoints, the number of decimal places can be specified
-
+```Python
+>>> '%f' % 27.658   #the fixpoint has 6 decimal places by default
+'27.658000'
+```
 - `%e` formats fixpoints using scientific notation
-
 - `%E` same as `%e` but uses capital E instead of e
-
+```Python
+>>> '%e' % 27.658
+'2.765800e+01'
+>>> '%E' % 27.658
+'2.765800E+01'
+```
 - `%g` uses `%f` or `%e` according to the value
-
 - `%G` uses `%f` or `%E` according to the value
+```Python
+>>> '%g' % 27.658  #%g thinks it better to interpret 27.658 as a fixpoint=27.658
+'27.658'
+```
 
 ## Keys
 - Formatting a string
