@@ -108,5 +108,18 @@ TypeError: not enough arguments for format string
   - `#`
   - `0`
 - Escape characters 转义字符
+  - `\'` a single quotation mark
+  - `\"` a double quotation mark
+  - `\a` bell sound
+  - `\b` backspace
+  - `\n` a newline
+  - `\t` a tab 横向制表符
+  - `\v` a vertical tab 纵向制表符
+  - `\r` return
+  - `\f` form feed 换页符
+  - `\o` octal system
+  - `\x` hexadecimal system
+  - `\0` a space
+  - `\\` an escape character itself
 ## Keys
 - Formatting a string
