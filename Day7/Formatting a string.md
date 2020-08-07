@@ -28,13 +28,26 @@ Recall that we can add a `\` to print some codes which may act as commands. Simi
 ```
 We may talk about fixpoint定点数 a liitle bit here, using an example of formatting. `{0:.1f}` corresponds to the first item `27.658`, and alters it to print one decimal place (`.1`) and to print fixpoint (`f`). The fixpoint is quite similar to float, but expressed differently. Generally speaking, fixpoint means the position of the decimal point remains the same (e.g. integers, pure decimals like 0.125), while float means that position can vary (like 3.125). The definitions of the two matter to computer basics, so we can omit the differences between floats and fixpoints in the beginner Python courses.
 ```Python
->>> '{0:.1f}{1}'.format(27.658,'08')
+>>> '{0:.1f}{1}'.format(27.658,'08')  #{1} corresponds to '08'
 '27.708'
->>> '{0:.1f}{1}'.format(27.658,'GB')
+>>> '{0:.1f}{1}'.format(27.658,'GB')  #{1} corresponds to 'GB'
 '27.7GB'
-
-
 ```
+### More formatting commands
+- `%c`
 
+- `%s`
+
+- `%d`
+
+- `%o`
+
+- `%x`
+
+- `%X`
+
+- `%f`
+
+- `%e`
 ## Keys
 - Formatting a string
