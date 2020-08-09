@@ -26,7 +26,7 @@ First, `list()` transforms an iterable item to a list
 [1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
-Second, `tuple([iterable])` transforms an iterable item to a tuple. Likewise, see the related functions via `help(tuple)` (see another file in the folder Day8).
+Second, `tuple(iterable)` transforms an iterable item to a tuple. Likewise, see the related functions via `help(tuple)` (see another file in the folder Day8).
 
 Third, `str(object)` transforms the object to a string.
 
@@ -170,4 +170,14 @@ The operator `zip(iterable, iterable, ..., iterable)` creates a new list which c
 ```
 
 ## Keys
-- Sequences
+- Sequences (two definitons)
+  - the common properties of lists, tuples and strings
+  - related functions
+    - `list(iterable), tuple(iterable), str(object)`
+    - `len(sub)`
+    - `max(), min()`
+    - `sum(iterable[, start=0])`
+    - `sorted(iterable, reverse=False)`
+    - `reversed(sequence)`
+    - `enumerate(iterable, start=0)`
+    - `zip(iterable, iterable, ..., iterable)`
