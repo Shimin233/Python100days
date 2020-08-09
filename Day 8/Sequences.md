@@ -170,7 +170,7 @@ The operator `zip(iterable, iterable, ..., iterable)` creates a new list which c
 ```
 
 ## Keys
-- Sequences (two definitons)
+- Sequences (two definitions)
   - the common properties of lists, tuples and strings
   - related functions
     - `list(iterable), tuple(iterable), str(object)`
