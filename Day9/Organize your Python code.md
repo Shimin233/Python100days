@@ -55,6 +55,11 @@ We can set an arbitrary (finite?) number of items in a funciton.
 11
 ```
 
+形参
+
+实参
+
+
 ## Keys
 - Three key factors in Python code
   1. Function: use `def` to define new functions, with/without inputted item(s)
