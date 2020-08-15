@@ -191,8 +191,8 @@ print(...)
 
 ## Keys
 - Three key factors in Python code: 1. Function, 2. Module, and 3. Item
-   1.1 Define a funciton: use `def` to define new functions, with/without inputted item(s)
-   1.2 Parameter and arguemnt
+   - 1.1 Define a funciton: use `def` to define new functions, with/without inputted item(s)
+   - 1.2 Parameter and arguemnt
        - Keyword argument
        - Default argument
        - Variable argument
