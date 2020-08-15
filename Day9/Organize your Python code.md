@@ -58,7 +58,7 @@ We can set an arbitrary (finite?) number of items in a funciton.
 
 #### 1.2 Parameter and argument
 There are two types of variables involved in the definition and use of a function: __parameter__ （形式参数，形参）and __argument__ （实际参数，实参）.
-The former one refers to the variable used to define a function, like `name` in the `MySecondFunction(name)`; the latter refers to the variable inputted to operate the function, like `Alice` in `MySecondFunction('Alice')`.\
+The former one refers to the variable used to define a function, like `name` in the `MySecondFunction(name)`; the latter refers to the variable inputted to operate the function, like `'Alice'` in `MySecondFunction('Alice')`.\
 Moreover, we can include some words of explanation when defining a function.
 ```Python
 >>> def MyFirstFunction(name):
