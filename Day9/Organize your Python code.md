@@ -2,6 +2,7 @@
 There are three key factors in Python code: funciton, module模块, item对象.
 
 ### Factor 1: Fucntion
+#### 1.1 Define a function
 We can define a function using `def`.
 ```Python
 >>> def MyFirstFunction():
@@ -55,14 +56,13 @@ We can set an arbitrary (finite?) number of items in a funciton.
 11
 ```
 
-形参
-
-实参
+#### 1.2 Parameter and argument
+There are two types of variables involved in the definition and use of a function: __parameter__ （形式参数，形参）and __argument__ （实际参数，实参）.
+The former one refers to the variable used to define a function, like `name` in the `MySecondFunction(name)`; the latter refers to the variable inputted to operate the function, like `Alice` in `MySecondFunction('Alice')`.
 
 
 ## Keys
-- Three key factors in Python code
-  1. Function: use `def` to define new functions, with/without inputted item(s)
-  2. Module
-  3. Item
+- Three key factors in Python code: 1. Function, 2. Module, and 3. Item
+   1.1 Define a funciton: use `def` to define new functions, with/without inputted item(s)
+   1.2 Parameter and arguemnt
   
