@@ -97,9 +97,13 @@ print(...)
     flush: whether to forcibly flush the stream.
 
 ```
-#### Keyword argument关键字参数
+Let us look at some special types of arguments.
+##### Keyword argument关键字参数
 Python will recognize your inputs by their order, by default, in order to make correspondence between the inputs (arguments) and the parameters. Alternatively, you can sepcify their correspondence by keyword arguments, and in this case the order of inputs does not matter.
 ```Python
+>>> def SaySome(name, words):
+	print(name + '->' + words)
+
 >>> SaySome('Alice', 'Hi~')
 Alice->Hi~
 >>> SaySome('Hi~', 'Alice')
@@ -114,13 +118,82 @@ Traceback (most recent call last):
     SaySome('Hi~', name='Alice')
 TypeError: SaySome() got multiple values for argument 'name'
 ```
-#### Default argument默认参数
+##### Default argument默认参数
+You can set a default argument for a parameter when defining a function. If there is no input for a parameter with a default argument, Python will automatically adopt this default one. 
+```Python
+>>> def SaySome(name='Alice', words='Hi~'):
+	print(name + '->' + words)
 
-#### Variable argument收集参数，可选/可变参数
+	
+>>> SaySome()
+Alice->Hi~
+>>> SaySome('Ben')  #the input 'Ben' is recognized as the name, by its order (1st parameter = 1st input)
+Ben->Hi~
+>>> SaySome('Ben', 'Goodbye!') 
+Ben->Goodbye!
+```
+In the case that no default argument is set, the lack of input will lead to an error; thus it is recommended to set default arguments, to avoid unnecessary inputs while ensuring the operation of a function.
 
-It is recommended to set default arguments for a function, to avoid unnecessary inputs.
+##### Variable argument收集参数，可选/可变参数
+Sometimes you may be not sure how many arguments will be inputted for a parameter. To solve this problem, you can use a variable argument `*params` to define the parameter; all the inputs which correspond to this parameter are collected in one tuple. In some cases, we use the variable argument `**params`, and all its inputs are collected in one dictionary. This will be talked about in the future courses.
+```Python
+>>> def test(*params):
+	print('the length of the argument: ', len(params))
+	print('the second argument is: ', params[1])
+
+>>> test(1, 'Alice', 3.14, 5, 6, 7, 8) #All the inputs here are in one tuple 'params'
+the length of the argument:  7
+the second argument is:  Alice
+```
+We can also mix the variable argument with other types of arguments. Note that we must specify which parameter the inputs correspond to. Also, when there is a deault argument set for a parameter, its input is not required; when there is no default for it, its input is required.
+```Python
+>>> def test(*params, exp):
+	print('the length of the argument: ', len(params))
+	print('the second argument is: ', params[1])
+
+#although the exp is not printed eventually in the output, the function requires its input since there is no default argument set for it	
+>>> test(1, 'Alice', 3.14, 5, 6, 7, 8)   #exp has no input or default, so an error is reported
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    test(1, 'Alice', 3.14, 5, 6, 7, 8)
+TypeError: test() missing 1 required keyword-only argument: 'exp'
+>>> test(1, 'Alice', 3.14, 5, 6, 7, exp=8) #8 is specified as the input of exp
+the length of the argument:  6
+the second argument is:  Alice
+
+#now the exp does appear in the output; like the case above, as no default argument is set for it, its input is required
+>>> def test(*params, exp):
+	print('the length of the argument: ', len(params), exp)
+	print('the second argument is: ', params[1])
+
+	
+>>> test(1, 'Alice', 3.14, 5, 6, 7, exp=8)
+the length of the argument:  6 8
+the second argument is:  Alice
+```
+
+
+You can see keyword arguments, default arguments and variable arguments in the explanation of the BIFs in Python, such as `print`.
+```Python
+>>> help(print)
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) #'value, ...' actually means a variable argument; by default, sep is ' ', end is a newline, file is sys.stdout and flush is False, so it is fine not to input anything for them
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream. 
+```
+
 ## Keys
 - Three key factors in Python code: 1. Function, 2. Module, and 3. Item
    1.1 Define a funciton: use `def` to define new functions, with/without inputted item(s)
    1.2 Parameter and arguemnt
+       - Keyword argument
+       - Default argument
+       - Variable argument
   
