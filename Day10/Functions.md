@@ -1,6 +1,6 @@
-## 
+## Three key factors
 ### Factor 1: Function
-#### Function VS. procedure
+#### 1.3 Function VS. procedure
 In most programming languages, we make difference between the function, which returns a result, and the procedure, which has no return.
 But in Python, there is no procedure but only function, since no return will be shown by returning `None`.
  ```Python
@@ -39,4 +39,5 @@ Python can return multiple items simultaneously using lists and tuples. Between 
 
 
 ## Keys
-- 
+- Three key factors in Python code: 1. Function, 2. Module, and 3. Item
+  - 1.3 Function VS. procedure
