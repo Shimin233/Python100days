@@ -1,5 +1,6 @@
-## Factor 1: functions
-### Function VS procedure
+## 
+### Factor 1: Function
+#### Function VS. procedure
 In most programming languages, we make difference between the function, which returns a result, and the procedure, which has no return.
 But in Python, there is no procedure but only function, since no return will be shown by returning `None`.
  ```Python
@@ -16,6 +17,9 @@ Hello world!
 None
 >>> type(temp)
 <class 'NoneType'>
+```
+Python can return multiple items simultaneously using lists and tuples. Between them, tuples requires commas between items only.
+```Python
 >>> def back():
 	return[1, 'Alice', 3.14]
 
@@ -27,8 +31,12 @@ None
 >>> print(temp)
 [1, 'Alice', 3.14]
 >>> def back():
-	return 1, 'Alice', 3.14
+	return 1, 'Alice', 3.14 
 
 >>> back()
 (1, 'Alice', 3.14) 
 ```
+
+
+## Keys
+- 
