@@ -1,18 +1,18 @@
 ## Global keyword
-claim that a variable is global rather than local
+We can claim that a variable is global rather than local inside some function, simply using the __global keyword__ `global`, so that we can alter a global variable inside a function.
 ```Python
->>> count=5
+>>> count=5  #conut is a global variable
 >>> def MyFun():
-	count=10
+	count=10  #Python automatically treats this count=10 as local inside Myfun()
 	print(10)
 
 	
 >>> MyFun()
 10
 >>> count
-5
+5  #global variable not altered by MyFun()
 >>> def MyFun():
-	global count
+	global count   #claim this 'count' is the local one defined before
 	count=10
 	print(10)
 
@@ -23,6 +23,7 @@ claim that a variable is global rather than local
 ```
 
 ## Inline function 内嵌函数/内部函数
+Python allows us to define a function inside another function. The interior funciton is called an __inline funciton__.
 ```Python
 >>> def fun1():
 	print('fun1() is operating')
@@ -84,8 +85,8 @@ UnboundLocalError: local variable 'x' referenced before assignment
 ```
 
 ## Keys
-- Factor 1: function
-  - Global keyword
-  - Inline function
-  - Closure
+- Factor 1: Function
+  - 1.5 Global keyword
+  - 1.6 Inline function
+  - 1.7 Closure
     - Nonlocal keyword
