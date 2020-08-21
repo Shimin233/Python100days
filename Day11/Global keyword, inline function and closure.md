@@ -84,3 +84,8 @@ UnboundLocalError: local variable 'x' referenced before assignment
 ```
 
 ## Keys
+- Factor 1: function
+  - Global keyword
+  - Inline function
+  - Closure
+    - Nonlocal keyword
