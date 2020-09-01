@@ -100,7 +100,33 @@ The second one is `map()`.This operates a function (mapping) by inputting each i
 ```
 
 ## Recursion
+Recursion means something is repeating itself. For example, a function can be defined as operating itself repeatedly.
+```Python
 
+```
+We can use recursion to define a factorial function, that is 5!=120 for 5, 10!=3628800 for 10. First we can define a non-recursion version. Type the following in the module:
+```Python
+def factorial(n):
+	result = n
+	for i in range(1, n):
+	    result *= i   #n |-> n*1 |-> n*1*2 |-> ... |-> n*1*2...*(n-2)*(n-1)
+
+	return result    #the 'result's in factorial(n) are one local variable, with updation
+
+number = int(input('Please insert a positive interger: '))
+result = factorial(number)   #this result is a global variale
+print('the factorial of %d is: %d' % (number, result))  # %d's interpret number and result as decimals, in the given order
+```
+Running it gives
+```Python
+Please insert a positive interger: 5
+the factorial of 5 is: 120
+```
+```Python
+Please insert a positive interger: 10
+the factorial of 10 is: 3628800
+```
+Now we introduce the recursion version of facorial.
 
 ## Keys
 - Lambda expression
