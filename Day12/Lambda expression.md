@@ -1,5 +1,5 @@
 ## Lambda expression
-Using the lambda expression, we can express a function in a way; lambda expression also makes it unnecessary to name a function, unless you want to.
+Using the lambda expression, we can express a function more concisely; lambda expression also makes it unnecessary to name a function, unless you want to. 
 ```Python
 #replace ds(x) using lambda expression
 >>> def ds(x):
@@ -25,3 +25,4 @@ Using the lambda expression, we can express a function in a way; lambda expressi
 >>> f(5, 6)
 11
 ```
+The lambda expression allows us to save time by simpler, more efficient and more readable codes.
