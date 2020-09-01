@@ -27,7 +27,7 @@ Using the lambda expression, we can express a function more concisely; lambda ex
 ```
 The lambda expression allows us to save time by simpler, more efficient and more readable codes.
 
-## Another two BIFs
+### Application of lambda expression to two BIFs
 We shall introduce two moew BIFs and apply lambda expression to their examples. 
 
 The first one is `filter()`. See the explanation, note that `filter(None, iterable)` means we pick anything which is `True` or 1 from the iterable; `filter(function, iterable)` means we pick anything which is inputted to the specified function and results in `True` or 1 from the iterable.
@@ -99,7 +99,11 @@ The second one is `map()`.This operates a function (mapping) by inputting each i
 [0]
 ```
 
+## Recursion
+
+
 ## Keys
 - Lambda expression
-- `filter(function or None, iterable)`
-- `map(function, *iterables)`
+  - simpler function expression
+  - `filter(function or None, iterable)`
+  - `map(function, *iterables)`
