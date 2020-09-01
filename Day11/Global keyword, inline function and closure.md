@@ -44,7 +44,9 @@ NameError: name 'fun2' is not defined
 
 ## Closure
 If an interior function quotes some variable which is external to this function but not global, then this interior funcitn is called a __closure__. For instance, `FunY(y)` is a closure defined inside `FunX(x)`, and quotes the variable `x`, which is external to `FunY(y)` but local in `FunX(x)`. \
-Note that `FunX(x)` is actually a function sending a number (like `x=8`, an independent variable of `FunX(x)`) to a function (like `FunX(8)`, a dependent variable of `FunX(x)`); and any of its dependent variables is a function sending a number (like 5) to another (40, i.e. `FunX(8)(5)`). In another words, with `x` given (8 here), `FunX(x)` knows what its `FunY(y)` looks like (y |-> 8 * y here), and then `y` is given, we know the final result. Remark, it is `FunY(y)` that quotes `x` which is local to `FunX(x)` (closure) and acts as the dependent variable of `FunX(x)`; probably it is generally the closure that acts as the dependent variable of an external function.\
+
+Note that `FunX(x)` is a function sending a number (`x=8`)  to a function ( `FunX(8)`, also `FunY` in the case of `x=8`); and its dependent variable is a function sending a number (5) to another (40, i.e. `FunX(8)(5)`). In another words, what does `FunY(y)` look like depends on the value of `x`. With `x=8` given here, `FunX(x)` knows that its corresponding `FunY(y)` is "y |-> 8 * y", and then `y=5` is given, we can obtain the final result `FunX(8)(5)= 8 * 5 = 40`. Remark, it is `FunY(y)` that quotes `x` which is local to `FunX(x)` (which makes `FunY(y)` a closure) and acts as the dependent variable of `FunX(x)`; probably it is generally the closure that acts as the dependent variable of an external function.
+
 Note that a closure cannot operate without its external function, since it quotes some variable which is local to another function (in the local domains of these external functions).
 ```Python
 >>> def FunX(x):
