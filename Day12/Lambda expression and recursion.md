@@ -100,11 +100,20 @@ The second one is `map()`.This operates a function (mapping) by inputting each i
 ```
 
 ## Recursion
-Recursion means something is repeating itself. For example, a function can be defined as operating itself repeatedly.
-```Python
+A __recursion__ means something repeats itself and halts at some time. For example, a function can be defined as operating itself repeatedly and halting with a final result.
 
+Remark that a good recursion should halt at some point; otherwise it will repeat infinitely and run out of the space in your computer. For safety, the upper limit of number of recursions is set as 100 by default in Python3. You can set a different upper limit.
+```Python
+>>> def recursion():
+	return recursion() #theoretically this function will repeat infinitely (actually it halts at the 100th repetition); can use command + c to stop repetition manually
 ```
-We can use recursion to define a factorial function, that is 5!=120 for 5, 10!=3628800 for 10. First we can define a non-recursion version. Type the following in the module:
+```Python
+#set an upper limit of recursions as 200
+>>> import sys
+>>> sys.setrecursionlimit(200)
+```
+
+We can use recursion to define a __factorial__ function, that is 5!=120 for 5, 10!=3628800 for 10. First we can define a non-recursion version. Type the following in the module (saved as Python100days/Day12/Factorial.py):
 ```Python
 def factorial(n):
 	result = n
@@ -126,10 +135,28 @@ the factorial of 5 is: 120
 Please insert a positive interger: 10
 the factorial of 10 is: 3628800
 ```
-Now we introduce the recursion version of facorial.
+Now we introduce the recursion version of the facorial function. Type in the module (saved as Python100days/Day12/Factorial using recursion.py):
+```Python
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1) 
 
+number = int(input('Please insert a positive integer: '))
+result = factorial(number)
+print('the factorial of %d is: %d' % (number, result))
+```
+As 5 is inputted, `factorial(5) = 5 * factorial(4) = 5 * 4 * factorial(3) = ... = 5 * 4 * 3 * 2 * 1`, the recursion halts at `factorial(1)`returns 1. This program runs the same as the previous one.
+```Python
+Please insert a positive integer: 5
+the factorial of 5 is: 120
+```
 ## Keys
 - Lambda expression
   - simpler function expression
   - `filter(function or None, iterable)`
   - `map(function, *iterables)`
+- Recursion
+  - needs both repetition and a point of halting; set an upper limit to recursions
+  - factorial function, with or without recursion
