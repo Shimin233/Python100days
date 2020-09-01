@@ -153,7 +153,7 @@ Please insert a positive integer: 5
 the factorial of 5 is: 120
 ```
 
-Fibonacci sequence
+### Fibonacci sequence
 the ratio of the n-th number and the (n+1)-th is converging to 0.618.
 
 $$ f(n)=\begin{cases}
@@ -162,6 +162,56 @@ $$ f(n)=\begin{cases}
 f(n-1)+f(n-2), & n\geq 3
 \end{cases}$$
 
+Exercise 1: How many pairs of rabbits are there after 20 months? 
+Soln1: Use iteration.
+```Python
+def fib(n):
+    n1=1
+    n2=1
+    n3=1
+
+    if n < 1:
+        print('Error!')
+        return -1
+    while (n-2)>0:
+        n3 = n2+n1
+        n1 = n2
+        n2 = n3
+        n -= 1
+
+    return n3
+
+result = fib(20)
+if result != -1:
+    print('There are %d pairs of rabbits' % result)
+```
+Running it gives:
+```Python
+There are 6765 pairs of rabbits
+```
+
+Soln2: Use recursion.
+```Python
+def f(n):
+    if n < 1:
+        print('Error!')
+        return -1
+    elif n < 3: #or just type the second if...else independently from the first if...(without else) cycle
+        return 1
+    else:
+        return f(n-1)+f(n-2)
+
+result = f(20)
+if result != -1:
+    print('There are %d pairs of rabbits' % result)
+```
+Running it gives the same result as Soln1.
+```Python
+There are 6765 pairs of rabbits
+```
+Recursion may take longer running time though it may simplifies the logic of the codes.
+Tip: recursion -> 分治思想, divide one complicated problem into simpler parts, to solve respectively
+
 ## Keys
 - Lambda expression
   - simpler function expression
@@ -169,4 +219,5 @@ f(n-1)+f(n-2), & n\geq 3
   - `map(function, *iterables)`
 - Recursion
   - needs both repetition and a point of halting; set an upper limit to recursions
-  - factorial function, with or without recursion
+  - factorial function, with or without recursion (iteration VS recursion)
+  - Fibonacci sequence
