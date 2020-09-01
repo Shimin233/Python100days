@@ -1,5 +1,5 @@
 ## Global keyword
-We can claim that a variable is global rather than local inside some function, simply using the __global keyword__ `global`, so that we can alter a global variable inside a function.
+When Python sees some variable in a function, it will by default treat this variable as a local one, which is valid only in this function, even though it may have a name same as a global variable. We can claim that a variable is global rather than local inside some function, simply using the __global keyword__ `global`, so that we can alter a global variable inside a function.
 ```Python
 >>> count=5  #conut is a global variable
 >>> def MyFun():
@@ -12,7 +12,7 @@ We can claim that a variable is global rather than local inside some function, s
 >>> count
 5  #global variable not altered by MyFun()
 >>> def MyFun():
-	global count   #claim this 'count' is the local one defined before
+	global count   #claim this 'count' is a variable defined previously and globally 
 	count=10
 	print(10)
 
@@ -76,7 +76,7 @@ Take another example, the interior function `Fun2()` quotes the variable `x`, wh
 >>> def Fun1():
 	x = 5
 	def Fun2():
-		x *= x
+		x *= x  #Python thinks this x is a local one in Fun2(), thus feel confused because it was not assigned in Fun2() yet
 		return x
 	return Fun2()
 
@@ -88,7 +88,7 @@ Traceback (most recent call last):
     return Fun2()
   File "<pyshell#39>", line 4, in Fun2
     x *= x
-UnboundLocalError: local variable 'x' referenced before assignment
+UnboundLocalError: local variable 'x' referenced before assignment   
 #Soln1: in Python2, the error above can be solved by using a list rather than a single number
 >>> def Fun1():
 	x = [5]
@@ -103,7 +103,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 >>> def Fun1():
 	x = 5
 	def Fun2():
-		nonlocal x
+		nonlocal x  #tell Python that x is nonlocal to Fun2(), but a variable defined previously outside Fun2() (and inside Fun1(), i.e. not global)
 		x *= x
 		return x
 	return Fun2()
