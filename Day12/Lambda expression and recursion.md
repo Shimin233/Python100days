@@ -152,6 +152,16 @@ As 5 is inputted, `factorial(5) = 5 * factorial(4) = 5 * 4 * factorial(3) = ... 
 Please insert a positive integer: 5
 the factorial of 5 is: 120
 ```
+
+Fibonacci sequence
+the ratio of the n-th number and the (n+1)-th is converging to 0.618.
+
+$$ f(n)=\begin{cases}
+1, & n=1\\
+1, & n=2\\
+f(n-1)+f(n-2), & n\geq 3
+\end{cases}$$
+
 ## Keys
 - Lambda expression
   - simpler function expression
