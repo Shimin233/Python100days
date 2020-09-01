@@ -26,3 +26,27 @@ Using the lambda expression, we can express a function more concisely; lambda ex
 11
 ```
 The lambda expression allows us to save time by simpler, more efficient and more readable codes.
+
+## Another two BIFs
+`filter()`
+
+```Python
+>>> filter(None,[1, 0, False, True])
+<filter object at 0x7fef4d7637c0>
+>>> list(filter(None,[1, 0, False, True]))
+[1, True]
+>>> def odd(x):
+	return x % 2
+
+>>> temp = range(3, 21)
+>>> show = filter(odd, temp)
+>>> list(show)
+[3, 5, 7, 9, 11, 13, 15, 17, 19]
+>>> list(filter(lambda x: x % 2, range(3, 21)))
+[3, 5, 7, 9, 11, 13, 15, 17, 19] 
+```
+
+
+## Keys
+- Lambda expression
+- Another two BIFs
