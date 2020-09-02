@@ -169,14 +169,14 @@ We can combine `else: if True:` by typeing `elif True:`.
 
 Note that in the following cycles,
 ```Python
-if True:
+if True:   #the first cycle, only has 'if' but no 'else'
   print('The first if condition is True')
-if True:
+if True:   #the second cycle, this is its 'if'
   print('The second if condition is True') #Both if cycles may have printed
-else:
+else:      #the second cycle, this is its 'else'
   print('One or two of the if conditions are False')
 ```
-the two `if`'s will operate respectively in their order; the second `if` operates no matter whether the first one is True.
+the two `if`'s will operate respectively in their order; the second `if` operates no matter whether the first one is True; and whether the `else` operates depends only on whether the second `if` condition is False. In another word, there are two independent cycles, operating respectively in order: the first one has only `if` but does not specify any operation for `else`, the second one specifies the operations for both `if` and `else`.
 
 It is different from the case with `elif` replacing the second `if`:
 ```Python
@@ -205,6 +205,21 @@ Run it,
 Insert a positive integer: 5
 The number 5 is larger than 2
 The number 5 is not in the interval (2, 4)
+```
+In contrast, replacing the second `if` with `elif`,
+```Python
+a = int(input('Insert a positive integer: '))
+
+if a > 2:
+    print('The number %d is larger than 2' % a)
+elif a < 4:
+    print('The number %d is smaller than 4' % a)
+else:
+    print('The number %d is not in the interval (2, 4)' % a)
+```
+```Python
+Insert a positive integer: 5
+The number 5 is larger than 2
 ```
 ### 避免'悬挂else'
 Such a problem means the undesired correspondence of `if` and `else`. However, Python requires you to use indents to type tidy and correct codes, su that this type of problems can rarely occur in Python.
