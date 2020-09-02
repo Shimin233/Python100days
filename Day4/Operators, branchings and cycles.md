@@ -285,7 +285,7 @@ Nous 4
 Vous 4
 Je 2
 ```
-The main difference between  `while` cycle and `for` cycle is that the former keeps running the body of the cycle when some condition is True, while the latter keeps applying the body to the items specified in the cycle condition. Generally, the `while` cycle condition does not necessarily specify any item, while the items specified in the `for` cycle condition join in the `while` cycle body.
+The main difference between  `while` cycle and `for` cycle is that the former keeps running the body of the cycle when some condition is True, while the latter keeps applying the body to the items specified in the cycle condition. Generally, the `while` cycle condition does not necessarily quote any item, while the items quoted in the `for` cycle condition join in its cycle body.
 
 ### Range()
 The grammar of this built-in function(BIF) is `range([start,] stop[, step])`. It acts on three items: start, stop and step. Those in the brackets are not required to specify; for example, `range(0, 5, 1)` can be simply typed as `range(5)`. This function will generate a sequence of numbers from the 'start' number (included; default 0) to 'stop' number (excluded), with a certain step (default 1).
