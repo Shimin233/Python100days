@@ -165,7 +165,29 @@ Soln1 TBC
 Note, you can use `if True:......` without `else`. 
 Soln2 TBC
 Soln3 TBC
-We can combine `else: if True:` by typeing `elif True:`.
+We can combine `else: if True:` by typeing `elif True:`. 
+
+Note that in the following cycles,
+```Python
+if True:
+  print('The first if condition is True')
+if True:
+  print('The second if condition is True') #Both if cycles may have printed
+else:
+  print('Neither of the if conditions is True')
+```
+the two `if`'s will operate respectively in their order; the second `if` operates no matter whether the first one is True. Only when neither of the two `if` conditions is True (i.e. both False), the `else` will operate (to be confirmed). 
+
+It is different from the case with `elif` replacing the second `if`:
+```Python
+if True:
+  print('The first if condition is True') 
+elif True:
+  print('The second if condition is True') #if the last sentence prints, this will not print; this may print only when the last sentence did not
+else:
+  print('Neither of the if conditions is True')
+```
+Only when the first `if` condition is False, `elif`'s condition is checked. Like the previosu case, only when neither of the two `if` conditions is True (i.e. both False), the `else` will operate (to be confirmed).
 
 ### 避免'悬挂else'
 Such a problem means the undesired correspondence of `if` and `else`. However, Python requires you to use indents to type tidy and correct codes, su that this type of problems can rarely occur in Python.
