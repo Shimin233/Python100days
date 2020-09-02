@@ -174,9 +174,9 @@ if True:
 if True:
   print('The second if condition is True') #Both if cycles may have printed
 else:
-  print('Neither of the if conditions is True')
+  print('One or two of the if conditions are False')
 ```
-the two `if`'s will operate respectively in their order; the second `if` operates no matter whether the first one is True. Only when neither of the two `if` conditions is True (i.e. both False), the `else` will operate (to be confirmed). 
+the two `if`'s will operate respectively in their order; the second `if` operates no matter whether the first one is True.
 
 It is different from the case with `elif` replacing the second `if`:
 ```Python
@@ -185,10 +185,27 @@ if True:
 elif True:
   print('The second if condition is True') #if the last sentence prints, this will not print; this may print only when the last sentence did not
 else:
-  print('Neither of the if conditions is True')
+  print('Both of the if conditions are False')
 ```
-Only when the first `if` condition is False, `elif`'s condition is checked. Like the previosu case, only when neither of the two `if` conditions is True (i.e. both False), the `else` will operate (to be confirmed).
+Only when the first `if` condition is False, `elif`'s condition is checked. Like the previosu case, only when neither of the two `if` conditions is True (i.e. both False), the `else` will operate. See the flowcharts of these two cases in Python100days/Day4/Elif_IfIfElse.
 
+See an example for the case that for `if...if...else`, there is only one if condition is False. Saved as Python100days/Day4/IfIfElse.py. In the module,
+```Python
+a = int(input('Insert a positive integer: '))
+
+if a > 2:
+    print('The number %d is larger than 2' % a)
+if a < 4:
+    print('The number %d is smaller than 4' % a)
+else:
+    print('The number %d is not in the interval (2, 4)' % a)
+```
+Run it,
+```Python
+Insert a positive integer: 5
+The number 5 is larger than 2
+The number 5 is not in the interval (2, 4)
+```
 ### 避免'悬挂else'
 Such a problem means the undesired correspondence of `if` and `else`. However, Python requires you to use indents to type tidy and correct codes, su that this type of problems can rarely occur in Python.
 
