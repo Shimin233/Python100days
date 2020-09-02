@@ -1,5 +1,5 @@
 ## Three key factors
-There are three key factors in Python code: funciton, module模块, item对象.
+There are three key factors in Python code: funciton, module模块, object对象.
 
 ### Factor 1: Fucntion
 #### 1.1 Define a function
@@ -190,7 +190,7 @@ print(...)
 ```
 
 ## Keys
-- Three key factors in Python code: 1. Function, 2. Module, and 3. Item
+- Three key factors in Python code: 1. Function, 2. Module, and 3. Object
    - 1.1 Define a funciton: use `def` to define new functions, with/without inputted item(s)
    - 1.2 Parameter and arguemnt
        - Keyword argument
