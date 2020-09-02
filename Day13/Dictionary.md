@@ -32,14 +32,23 @@ What is it:  sleeping
 ```
 Note that lists and tuples are of the sequence type, while dictionaries are of the mapping type.
 
+Use `dict(mapping)` to create a dictionary.
 ```Python
-dict3 = dict((('F', 70), ('i', 105), ('s', 115), ('h', 104)))
+dict3 = dict((('F', 70), ('i', 105), ('s', 115), ('h', 104))) #input a tuple (consisting of smaller tuples) into dict(), where this tuple of tuples acts as a mapping
 >>> dict3
 {'F': 70, 'i': 105, 's': 115, 'h': 104}
->>> dict4 = dict([('F', 70), ('i', 105), ('s', 115), ('h', 104)])
+>>> dict4 = dict([('F', 70), ('i', 105), ('s', 115), ('h', 104)]) #input a list (consisting of small tuples) into dict()
 >>> dict4
 {'F': 70, 'i': 105, 's': 115, 'h': 104}
->>> dict5 = dict(you='right', me='left') #will read the keyword as a string automatically; cannot use 'you'=..., since keyword cannot be an expression
+>>> dict5 = dict(you='right', me='left') #will read the keyword as a string automatically; cannot use 'you'=..., since keyword cannot be an expression #use assignments to create a dictionary
 >>> dict5
 {'you': 'right', 'me': 'left'}
+```
+We can update the value of some key by re-assigning a new value to it
+```Python
+>>> dict5
+{'you': 'right', 'me': 'left'}
+>>> dict5['me']='down'
+>>> dict5
+{'you': 'right', 'me': 'down'}
 ```
