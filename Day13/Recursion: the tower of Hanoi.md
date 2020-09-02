@@ -22,7 +22,7 @@ b.3 Move those 62 plates from X to Z.
 And we can divide them into even more questions...... 
 
 ```Python
-def hanoi(n, x, y, z):
+def hanoi(n, x, y, z):   #assign the names of the three poles to x, y, and z
     if n == 1:
         print(x, '--->', z)
     else:
