@@ -227,8 +227,149 @@ We may create a copy of some dictionary using `copy()`. Note the differences bet
 >>> b
 {1: 'one', 2: 'two', 3: 'three'} #b is independent from a
 ```
+##### (Deep)copy and assignment
 Campare copy浅拷贝, deepcopy()深拷贝 and assignment ([source](https://www.cnblogs.com/xiaodi914/p/5888052.html)).
-TBC
+First for assignment, we test the following codes.
+```Python
+>>> will = ["Will", 28, ["Python", "C#", "JavaScript"]]
+>>> wilber = will
+
+>>> id(will)
+140333844956160
+>>> will
+['Will', 28, ['Python', 'C#', 'JavaScript']]
+>>> [id(item) for item in will]
+[140333845121776, 4462730784, 140333845131584]
+
+>>> id(wilber)
+140333844956160
+>>> wilber
+['Will', 28, ['Python', 'C#', 'JavaScript']]
+>>> [id(item) for item in wilber]
+[140333845121776, 4462730784, 140333845131584]
+#the id's of will and wilber are exactly the same, implying that 'wilber is will' and 'wilber[i] is will[i]'
+
+
+>>> will[0] = "Wilber"  #update will
+>>> will[2].append('CSS')  #update will; note this is to append an item to the list, which is the 2-th item in the whole list, will
+
+>>> id(will)
+140333844956160  #id(will) remains the same 
+>>> will
+['Wilber', 28, ['Python', 'C#', 'JavaScript', 'CSS']]
+>>> [id(item) for item in will]
+[140333840570992, 4462730784, 140333845131584] #the id of 0th item changes because string is an 'un-alterable' item, so updation creates a new id #other id's remain the same 
+
+>>> id(wilber)
+140333844956160  #id(wilber) remains the same, like id(will)
+>>> wilber
+['Wilber', 28, ['Python', 'C#', 'JavaScript', 'CSS']]  #wilber alters in the same way as will
+>>> [id(item) for item in wilber]
+[140333840570992, 4462730784, 140333845131584] #the items' id's change in wilber in the same way as those in will
+
+>>> wilber.pop()
+['Python', 'C#', 'JavaScript', 'CSS']
+>>> wilber
+['Wilber', 28]
+>>> will
+['Wilber', 28] #the items' id's change in the same way in will as those in wilber
+```
+We can summarize from the example above that
+- As will is assigned to wilber, they use exactly the same objects, 'wilber is will' and 'wilber\[i\] is will\[i]';
+- Thus any change to will happens in wilber in the same way, also in the other direction: changes happen to will like to wilber;
+- Note a string is 'un-alterrable', so updation of it will create a new string with a new id; but for the lists (and some other?), they are 'alterable' and so the id's remain the same after updation.
+
+Secondly, we look at _copy浅拷贝_ by testing the following.
+```Python
+>>> import copy #引入copy模块
+
+>>> will = ["Will", 28, ["Python", "C#", "JavaScript"]]
+>>> wilber = copy.copy(will)
+
+>>> id(will)
+140333845132544
+>>> will
+['Will', 28, ['Python', 'C#', 'JavaScript']]
+>>> [id(item) for item in will]
+[140333845135728, 4462730784, 140333844931200]
+
+>>> id(wilber)
+140333845121216   #id(wilber) is distinct from id(will), 'wilber is not will'
+>>> wilber
+['Will', 28, ['Python', 'C#', 'JavaScript']]  #wilber appears like will
+>>> [id(item) for item in wilber]
+[140333845135728, 4462730784, 140333844931200]  #same id for each item, 'wilber\[i] is wll\[i]'
+
+>>> will[0] = "Wilber"  #update will
+>>> will[2].append("CSS")  #update will
+
+>>> id(will)
+140333845132544 #same id as the old will, despite updation
+>>> will
+['Wilber', 28, ['Python', 'C#', 'JavaScript', 'CSS']]
+>>> [id(item) for item in will]
+[140333845138160, 4462730784, 140333844931200] #string's id updated, others remain the same, like before
+
+>>> id(wilber)
+140333845121216 
+>>> wilber
+['Will', 28, ['Python', 'C#', 'JavaScript', 'CSS']] #wilber appears different from updated will; only 'alterable' (2-th, a list) items in wilber is updated, the 'un-alterable' (string) is not
+>>> [id(item) for item in wilber]
+[140333845135728, 4462730784, 140333844931200] #same id for each item of wilber, as in old will
+# updation of will changes the 'alterable' (e.g. list) items but does not change 'un-alterable' items (e.g. string) in wilber, the copy of will
+```
+Summarize the codes above
+- Copying creates a new object wilber distinct from will, 'wilber is not will'; but each item in wilber uses the original id's as in will, 'wilber\[i] is wll\[i]';
+- Updation of will changes the 'alterable' (e.g. list) items but does not change 'un-alterable' items (e.g. string) in wilber;
+- same as before, string's id changes after updation while that for list does not;
+- The cases leading to copying include
+  - slicing切片`[:]`
+  - facory functions工厂函数, like list()/dir()/set()
+  - `copy()` in the `copy` module模块 (like we did above)
+
+Fianlly for _deepcopying_, test the below
+```Python
+>>> import copy
+
+>>> will = ["Will", 28, ["Python", "C#", "JavaScript"]]
+>>> wilber = copy.deepcopy(will)
+
+>>> id(will)
+140333844956160
+>>> will
+['Will', 28, ['Python', 'C#', 'JavaScript']]
+>>> [id(item) for item in will]
+[140333845135728, 4462730784, 140333845138240]
+
+>>> id(wilber)
+140333845138944  #id(wilber) is distinct from id(will), 'wilber is not will'
+>>> wilber
+['Will', 28, ['Python', 'C#', 'JavaScript']]
+>>> [id(item) for item in wilber]
+[140333845135728, 4462730784, 140333845131584] #deepcopy creates a new portion of each item (with exceptions), like 2-th item here (see the different id's in will and wilber), 'will[2] is not wilber[2]'
+
+
+>>> will[0] = "Wilber" #update will
+>>> will[2].append("CSS")  #update will
+
+>>> id(will)
+140333844956160 #same id as the old will
+>>> will
+['Wilber', 28, ['Python', 'C#', 'JavaScript', 'CSS']]
+>>> [id(item) for item in will]
+[140333845143280, 4462730784, 140333845138240] #string's id updated, others remain the same, like before
+
+>>> id(wilber)
+140333845138944
+>>> wilber
+['Will', 28, ['Python', 'C#', 'JavaScript']] #wilber appears not changed by updation of will
+>>> [id(item) for item in wilber]
+[140333845135728, 4462730784, 140333845131584] #the id's of wilber are not changed by updation of will
+```
+Summarize the codes above
+- 'wilber is not will', 'will\[2] is not wilber\[2]' with some exceptions
+- same as before, string's id changes after updation while that for list does not
+
 
 ### Pop(), popitem(), setdefault() and update()
 Use `pop(key)` to remove and return a pair of key and value from a dictionary, while `popitem()` removes and returns the last pair.
@@ -273,4 +414,5 @@ We update a dictionary by adding another to it using `update(dict2)`.
   - Use `get()`, `in` and `not in` to check wthether an item is in a dictionary
   - Use `clear()` to clean a dictionary, compared with assignment
   - Use `copy()` to create a new copy, compared with assignment
+    - Campare copy浅拷贝, deepcopy()深拷贝 and assignment
   - Use `pop()`, `popitem()`, `setdefault()` and `update()` to remove, add and update items
