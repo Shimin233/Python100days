@@ -139,7 +139,7 @@ None
 #set an expression for the case that dict1.get(sth) does not exist
 >>> dict1.get(12, 'No such thing!')
 'No such thing!'
->>> dict1.get(9, 'No such thing!')
+>>> dict1.get(9, 'No such thing!') #for the item that exists, the value itself will be printed
 'miu'
 ```
 ```Python
@@ -159,7 +159,7 @@ We use `dict1.clear()` to remove all the contents in a dictionary.
 {}
 >>> dict1 = {}
 ```
-Although we can clear a dictionary likewise by re-assigning am empty dictionary to it, the previously elsewhere-assigned copy will remain intact. However, `clear()` will clean all of the copies.
+Although we can clean a dictionary likewise by re-assigning am empty dictionary to it, the previously elsewhere-assigned copy will remain intact. However, `clear()` will clean all of the copies.
 ```Python
 >>> a={'je':'I'}
 >>> b = a
@@ -227,10 +227,11 @@ We may create a copy of some dictionary using `copy()`. Note the differences bet
 >>> b
 {1: 'one', 2: 'two', 3: 'three'} #b is independent from a
 ```
-deepcopy()(TBC)
+Campare copy浅拷贝, deepcopy()深拷贝 and assignment ([source](https://www.cnblogs.com/xiaodi914/p/5888052.html)).
+TBC
 
-### Pop(), setdefault() and update()
-Use `pop(key)` to remove a pair of key and value from a dictionary, while `popitem()` removes the last pair.
+### Pop(), popitem(), setdefault() and update()
+Use `pop(key)` to remove and return a pair of key and value from a dictionary, while `popitem()` removes and returns the last pair.
 ```Python
 >>> a
 {1: 'one', 2: 'two', 3: 'three', 4: 'four'}
@@ -240,6 +241,10 @@ Use `pop(key)` to remove a pair of key and value from a dictionary, while `popit
 {1: 'one', 3: 'three', 4: 'four'}
 >>> a.popitem()
 (4, 'four')
+```
+The use of `setdefault(key)` is similar to `get(key)`, but when such a key does not exist, a pair of this key and value (None) will be created. Also, `setdefault(key, value)` will create and return a pair of key and value. \
+We update a dictionary by adding another to it using `update(dict2)`.
+```Python
 >>> a.setdefault('ME')
 >>> a
 {1: 'one', 3: 'three', 'ME': None}
@@ -252,7 +257,11 @@ Use `pop(key)` to remove a pair of key and value from a dictionary, while `popit
 >>> b = {'ME': 'moi'}
 >>> a.update(b)
 >>> a
-{1: 'one', 3: 'three', 'ME': 'moi', 5: 'five'}
+{1: 'one', 3: 'three', 'ME': 'moi', 5: 'five'} #the contents in the old dictionary can be updated by update(), (I guess )at some certain position
+>>> c = {1: 'one', 2: 'two', 3: 'three', 4: 'four'}
+>>> a.update(c)
+>>> a
+{1: 'one', 3: 'three', 'ME': 'moi', 2: 'two', 4: 'four'} #the duplicated pairs are not updated, the new pairs are added 
 ```
 
 ## Keys
@@ -260,3 +269,8 @@ Use `pop(key)` to remove a pair of key and value from a dictionary, while `popit
   - Key and value
   - Use `dict(mapping)` to create a dictionary
   - Use `fromkeys(iterable, value=None)` to create a dictionary
+  - Use `key()`, `values()` and `items()` to visit contents of a dictionary
+  - Use `get()`, `in` and `not in` to check wthether an item is in a dictionary
+  - Use `clear()` to clean a dictionary, compared with assignment
+  - Use `copy()` to create a new copy, compared with assignment
+  - Use `pop()`, `popitem()`, `setdefault()` and `update()` to remove, add and update items
