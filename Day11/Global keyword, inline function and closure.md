@@ -45,7 +45,7 @@ NameError: name 'fun2' is not defined
 ## Closure
 If an interior function quotes some variable which is external to this function but not global, then this interior funcitn is called a __closure__. For instance, `FunY(y)` is a closure defined inside `FunX(x)`, and quotes the variable `x`, which is external to `FunY(y)` but local in `FunX(x)`. \
 
-Note that `FunX(x)` is a function sending a number (`x=8`)  to a function ( `FunX(8)`, also `FunY` in the case of `x=8`); and its dependent variable is a function sending a number (5) to another (40, i.e. `FunX(8)(5)`). In another words, what does `FunY(y)` look like depends on the value of `x`. With `x=8` given here, `FunX(x)` knows that its corresponding `FunY(y)` is "y |-> 8 * y", and then `y=5` is given, we can obtain the final result `FunX(8)(5)= 8 * 5 = 40`. Remark, it is `FunY(y)` that quotes `x` which is local to `FunX(x)` (which makes `FunY(y)` a closure) and acts as the dependent variable of `FunX(x)`; probably it is generally the closure that acts as the dependent variable of an external function.
+Recall that a function sends an independent variabl to a dependent variable; when some value is assigned to the independent variable, the function outputs a corresponding value of the dependent variable (called result for convernience). Note that here `FunX(x)` is a function sending a number (`x=8`)  to a function ( `FunX(8)`, also `FunY` in the case of `x=8`); and its result is a function sending a number (5) to another (40, i.e. `FunX(8)(5)`). In another words, what does `FunY(y)` look like depends on the value of `x`. With `x=8` given here, `FunX(x)` knows that its corresponding `FunY(y)` is "y |-> 8 * y", and then `y=5` is given, we can obtain the final result `FunX(8)(5)= 8 * 5 = 40`. Remark, it is `FunY(y)` that quotes `x` which is local to `FunX(x)` (which makes `FunY(y)` a closure) and acts as the result of `FunX(x)`; it is generally the closure that acts as the result of an external function.
 
 Note that a closure cannot operate without its external function, since it quotes some variable which is local to another function (in the local domains of these external functions).
 ```Python
@@ -114,7 +114,60 @@ UnboundLocalError: local variable 'x' referenced before assignment
 
 #### Factory function
 The factory function is an application of closure. 见知乎上此问题中[张雨萌的回答](https://www.zhihu.com/question/20670869); I rewrite this explanation in my own words here, to improve understanding (to be confirmed and revised).\
-A factory function (called f) is generally a function which is a dependent of some other function (called F). The f is the 'result' of F
+A __factory function__ (called F for convenience) is generally a function which reuturns a closure (called f). 
+It was mentioned above in the section of closure f that a function acting as a result of some other function (F here). Because f is a result of F, f=F(x) is a function for each given x; because f is a function, it has its own independent variable (y), thus we write z=f(y)=F(x)(y).  \
+Now we talk about a property of the closure, which relates it to the factory function: f remembers the variable x that it quoted from an exterior domain (the domain of F), though F itself is not operating explicitly. Inside F, the closure is defined and then returned, but is not operated, so the result of operating F is still a function, i.e. F(x)=f.\
+I express 'F itself is not operating' in the paragraph above in a different way from [张雨萌](https://www.zhihu.com/question/20670869). He said f remembers x when the operation of F has ended; but I would say F is still operating implicitly, since the operation of f relies on the definition and returning in the definition of F. Indeed, `F()` implies that we already get the result of operation of F, the rest operation seems to belong to f (`action()` ), but this relies on the definition of f, which quotes x from F. F has not ended, just the rest happens inside the 'scale' of its result.
+```Python
+>>> def F():
+	x=88
+	def f():
+		return x
+	return f
+
+>>> action = F()
+>>> type(action)
+<class 'function'>
+>>> action()
+88
+```
+There is a detail: f remembers all the variables given in F, including the independent variable x of F, and the assignments made in the body of F. In one word, f know everything that F told it. See the examples below
+```Python
+>>> def F(x):
+    n=18
+    def f(y):
+        return x*y+n
+    return f
+ 
+ >>> F(3) #this is exactly f, 
+<function F.<locals>.f at 0x7fca6779e670>
+>>> F(3)(2)
+24
+```
+Remark that the `nonlocal` keyword allows us to alter the variable (`in_num`) in the closure which was originally quoted from exterior funcition. With different `num` 's are given, the results of a factory function (`test(num)` here) are indepdent form each other, like `F` and `G`. But inside one result (such that of `F`), the renewal of `in_num` by `nonlocal` will be recorded in the sacle of `F` and thus remembered by the closure.
+```Python
+>>> def test(num):
+	in_num=num
+	def nested(label):
+		nonlocal in_num
+		in_num += 1
+		return(label, in_num)
+	return nested
+
+>>> F = test(0)
+>>> F('a')
+('a', 1) #from now on, in_num is updated to be 1 and so F = test(1)
+>>> F('b')
+('b', 2) #from now on, in_num is updated to be 2 and so F = test(2)
+>>> F('c')
+('c', 3) #likewise, in_num = 3...
+
+>>> G=test(100)
+>>> G('b')
+('b', 101)
+```
+There are also factory functions in the BIFs, like `list()`, `dir()`, etc.
+
 ##### Extension
 The lisp processing (lisp) language, see definition [here](https://baike.baidu.com/item/lisp语言/2840299?fr=aladdin).
 
@@ -126,3 +179,4 @@ The lisp processing (lisp) language, see definition [here](https://baike.baidu.c
   - 1.7 Closure
     - Error for running a closure without its external function(s) (and external domains)
     - Nonlocal keyword
+    - Factory function
