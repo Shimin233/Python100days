@@ -112,9 +112,13 @@ UnboundLocalError: local variable 'x' referenced before assignment
 25
 ```
 
-
+#### Factory function
+The factory function is an application of closure. 见知乎上此问题中[张雨萌的回答](https://www.zhihu.com/question/20670869); I rewrite this explanation in my own words here, to improve understanding (to be confirmed and revised).\
+A factory function (called f) is generally a function which is a dependent of some other function (called F). The f is the 'result' of F
 ##### Extension
 The lisp processing (lisp) language, see definition [here](https://baike.baidu.com/item/lisp语言/2840299?fr=aladdin).
+
+
 ## Keys
 - Factor 1: Function
   - 1.5 Global keyword
