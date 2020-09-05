@@ -370,6 +370,7 @@ Summarize the codes above
 - 'wilber is not will', 'will\[2] is not wilber\[2]' with some exceptions
 - same as before, string's id changes after updation while that for list does not
 
+See more examples [here](https://www.cnblogs.com/sxzwj/p/7967418.html).
 
 ### Pop(), popitem(), setdefault() and update()
 Use `pop(key)` to remove and return a pair of key and value from a dictionary, while `popitem()` removes and returns the last pair.
