@@ -3,7 +3,7 @@ I want to format maths like I did in LaTeX in my Python notes, which are markdow
 There are some related advice:\
 [Stack Overflow Q&A](https://stackoverflow.com/questions/26275645/how-to-support-latex-in-github-pages),\
 [Zhihu](https://zhuanlan.zhihu.com/p/36302775),\
-[Someone's blog](https://segmentfault.com/a/1190000019359797)(this talks about typing Math in markdown files on Github, but not on Github pages, as well as on all the webs like segmentfault),\
+[Someone's blog](https://segmentfault.com/a/1190000019359797)(this talks about typing Math in markdown files on Github, but not on Github pages, as well as on all the webs like segmentfault) （on Chrome),\
 [CSDN](https://blog.csdn.net/David_Han008/article/details/78343836),\
 [Another CSDN notes, about LaTeX syntax in markdown](https://blog.csdn.net/weixin_44544923/article/details/97375111?utm_medium=distribute.pc_feed_404.none-task-blog-BlogCommendFromBaidu-2.nonecase&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-BlogCommendFromBaidu-2.nonecas),\
 [MathJax website](https://www.mathjax.org/#docs),\
