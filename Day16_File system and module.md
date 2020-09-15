@@ -42,8 +42,16 @@ The functions in the os.path module
 |basename(path)|remove the file path, only return the file name|
 |dirname(path)|remove the file name, only return the directory path|
 |join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
+|split(path)||
+|splittext(path)||
+|getsize(file)||
+|getatime(file)||
+|getctime(file)||
+|getmtime(file)||
+|exists(path)||
+|isabs(path)||
 
-
+First we test some of the codes in the os module.
 ```Python
 >> import os
 >>> os.getcwd()
@@ -72,7 +80,22 @@ OSError: [Errno 66] Directory not empty: '/Users/shiminfu/Desktop/WithoutOneDriv
 >>> os.remove('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2/testtesttest.txt') 
 >>> os.rmdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2')
 ```
-
+Test some of them on my mac:
+```Python
+>>> os.curdir
+'.'
+>>> os.listdir('.')
+['.DS_Store', 'Test']
+>>> os.listdir(os.curdir)
+['.DS_Store', 'Test']
+>>> os.sep
+'/'
+>>> os.linesep
+'\n'
+>>> os.name
+'posix'
+>>> 
+```
 TBC:need exmaples for makedirs(path) and rmdirs(path)
 
 TBC: need shell commands on mac to give examples of os.system(command), I have tried:
@@ -83,6 +106,18 @@ TBC: need shell commands on mac to give examples of os.system(command), I have t
 0
 >>> os.system('terminal')
 32512
+```
+Then we test some codes in the os.path module.
+```Python
+>>> os.path.basename('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
+'Test'
+>>> os.path.basename('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/test1.txt')
+'test1.txt'
+>>> os.path.dirname('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
+'/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16'
+>>> os.path.join('Test', 'Test2', 'Test3')
+'Test/Test2/Test3'
+>>> 
 ```
 
 ## Keys
