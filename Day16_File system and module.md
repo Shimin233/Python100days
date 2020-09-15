@@ -42,7 +42,7 @@ The functions in the os.path module
 |basename(path)|remove the file path, only return the file name|
 |dirname(path)|remove the file name, only return the directory path|
 |join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
-|split(path)||
+|split(path)|split the file name from the path, return a tuple (f_path, f_name); even inputting a directory (i.e.the last part is a folder not file) or the file doesn't exist, it returns the last part as if it's file name|
 |splittext(path)||
 |getsize(file)||
 |getatime(file)||
@@ -117,7 +117,9 @@ Then we test some codes in the os.path module.
 '/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16'
 >>> os.path.join('Test', 'Test2', 'Test3')
 'Test/Test2/Test3'
->>> 
+>>> os.path.split('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
+('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16', 'Test')
+
 ```
 
 ## Keys
