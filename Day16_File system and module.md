@@ -44,4 +44,46 @@ The functions in the os.path module
 |join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
 
 
+```Python
+>> import os
+>>> os.getcwd()
+'/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day15'
+>>> os.chdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16')
+>>> os.getcwd()
+'/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16'
+>>> os.listdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days')
+['Day4', 'Day3', '.DS_Store', 'PythonCheatSheets', 'Day2', 'Day12', 'Day15', 'Day13', 'hello', 'Day16', 'Day10']
+>>> os.mkdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test') #create a new folder Test in Day16
+>>> os.mkdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2') #create a new folder Test2 in Test
+>>> os.mkdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test3/Test2')
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    os.mkdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test3/Test2')
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test3/Test2'
+#the folder Test3 does not exist, thus an error
+```
+Create a file, testtesttest.txt (note on mac it may appear without '.txt') in the folder Test2. We can see it is necessary to delete the file before deleting the folder Test2.
+```Python
+>>> os.rmdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2')
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    os.rmdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2')
+OSError: [Errno 66] Directory not empty: '/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2'
+>>> os.remove('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2/testtesttest.txt') 
+>>> os.rmdir('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/Test2')
+```
+
+TBC:need exmaples for makedirs(path) and rmdirs(path)
+
+TBC: need shell commands on mac to give examples of os.system(command), I have tried:
+```Python
+>>> os.system('cmd')
+32512 #only number outputted but nothing else (no new windows)
+>>> os.system('command')
+0
+>>> os.system('terminal')
+32512
+```
+
+## Keys
 
