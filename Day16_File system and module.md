@@ -16,7 +16,8 @@ NameError: name 'random' is not defined
 ```
 
 Generally, the methods to visit file systems vary among various operation systems (macOS, Windows, Linux, UNIX, etc.). So we have to choose the modules of file systems according to operation systems, and have to rewrite large amounts of codes to deal with such a change. However, as an inter-system programming language, Python has the module 'OS', which automatically chooses and uses the correct module for us. Let us go through the functions contained in the OS module.
-|The functions in the os module|
+
+The functions in the os module
 |Function|    How to use it    |
 |--------|------------------|
 |getcwd()|return the current working directory当前工作目录|
@@ -35,8 +36,9 @@ Generally, the methods to visit file systems vary among various operation system
 |os.linesep|the ?行终止符 use by current operation system ('\r\n' for Windows, '\n' for Linux)|
 |os.name|refer to the operation system currently used (incl. 'posix', 'nt', 'mac', 'os2', 'ce', 'java')|
 
-|The functions in the os.path module|
+The functions in the os.path module
 |Function|     How to use it        |
+|--------|------------------|
 |basename(path)|remove the file path, only return the file name|
 |dirname(path)|remove the file name, only return the directory path|
 |join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
