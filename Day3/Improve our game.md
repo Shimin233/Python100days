@@ -14,8 +14,8 @@ Recall the following operators
 | `>=`                      | no smaller than|
 | `<`                       | strictly smaller than|
 | `<=`                      | no larger than|
-| `==`                      | equals|
-| `!=`                      | does not equal|
+| `==`                      | equal|
+| `!=`                      | not equal|
 
 As we have seen before, `1<5` will be interpreted as `True`, and other comparison operators work similarly.
 
@@ -96,11 +96,11 @@ False
 ## Improvement3: Random module随机模块
 You may have noticed that the codes of our first game are typed in a field called "module". Now we introduce another tool called random module, which is used in our "module" field. 
 
-I feel the "modules" in Python can refer to two things: the first is a package containing previously defined functions and other tools (just like the packages in LaTeX), such as the random module; the second is the field where we type codes of a program, distinct from the shell where we interact with the program by inputting.
+I feel that the "modules" in Python can refer to two things: the first is a package containing previously defined functions and other tools (just like the packages in LaTeX), such as the random module; the second is the field where we type codes of a program, distinct from the shell where we interact with the program by inputting.
 
 We are going to use the function `randint()` in the random module, which gives a random integer. Again in the module where we have typed our codes of the game
 ```Python
-import random    #import the random module before
+import random    #import the random module beforehand
 secret = random.randint(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
 print('---------My first game---------')
 temp=input('Guess one number:')
@@ -119,9 +119,9 @@ while guess != secret:  #replace every "8" in original codes with secret
 print('The End')
 ```
 
-There is an embarrassing case in the codes above: if the randomly generated value of `secret` is exactly the guess, it will directly print `The End`, which is very confusing. So, the following exercise is to improve the codes.
+There is an embarrassing case in the codes above: if the randomly generated value of `secret` is exactly the guess, it will directly print `The End`, which is confusing. So, the following exercise is to improve the codes.
 
-_Exercise2: Revise the codes such that if the first guess is correct, then there will be "Right!" "Happy guessing!" printed._
+_Exercise2: Revise the codes such that if the first guess is correct, then there will be "Right!" "Happy guessing!" printed._ See my solutions at the end of this file.
 
 ## Keys
 - Three techniques to improve our game
