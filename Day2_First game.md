@@ -68,7 +68,7 @@ Let's play with variables with more examples.
   ```Python
   >>> a=6 #print(a) gives 6
   >>> b=7
-  >>> c=a #print(c) gives
+  >>> c=a #print(c) gives 6
   ```
   Note the order of codes: `c=a` means assigning value of `a` to `c`; if replaced by `a=c`, which is assigning value of `c` to `a`, Python will wonder what is the value of `c`, and will report an error since `c` is not defined yet.
 - Use variables with values assigned to do calculations.
