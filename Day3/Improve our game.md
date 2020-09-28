@@ -8,7 +8,6 @@ We shall introduce more techniques to be prepared for improving the game.
 
 ## Improvement1: Conditional branching条件分支
 Recall the following operators
-|Python Comparison Operators                          |
 |Python Comparison Operators|      Description        |
 |---------------------------| ------------------------|
 | `>`                       | strictly larger than|
