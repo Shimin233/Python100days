@@ -17,7 +17,7 @@ NameError: name 'random' is not defined
 
 Generally, the methods to visit file systems vary among various operation systems (macOS, Windows, Linux, UNIX, etc.). So we have to choose the modules of file systems according to operation systems, and have to rewrite large amounts of codes to deal with such a change. However, as an inter-system programming language, Python has the module 'OS', which automatically chooses and uses the correct module for us. Let us go through the functions contained in the OS module.
 
-The functions in the os module
+### The functions in the os module
 |Function|    How to use it    |
 |--------|------------------|
 |getcwd()|return the current working directory当前工作目录|
@@ -35,21 +35,6 @@ The functions in the os module
 |os.sep|output the separator路径分隔符（？）specific to the operation system ('\\' for Windows, '\' for Linux)|
 |os.linesep|the ?行终止符 use by current operation system ('\r\n' for Windows, '\n' for Linux)|
 |os.name|refer to the operation system currently used (incl. 'posix', 'nt', 'mac', 'os2', 'ce', 'java')|
-
-The functions in the os.path module
-|Function|     How to use it        |
-|--------|------------------|
-|basename(path)|remove the file path, only return the file name|
-|dirname(path)|remove the file name, only return the directory path|
-|join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
-|split(path)|split the file name from the path, return a tuple (f_path, f_name); even inputting a directory (i.e.the last part is a folder not file) or the file doesn't exist, it returns the last part as if it's file name|
-|splitext(path) (splittext(path)?)|split the file name and the extension扩展名, return a tuple (f_name, f_extension)|
-|getsize(file)|return the size of the file, in bytes|
-|getatime(file)|return the time of the most recent visit in a float in seconds, can convert it further by `gmtime()` or `localtime()` in the `time` module|
-|getctime(file)|return the time of creation in a float in seconds, can convert it further by `gmtime()` or `localtime()` in the `time` module|
-|getmtime(file)|return the time of the most recent modification in a float in seconds, cn convert it further by `gmtime()` or `localtime()` in the `time` module|
-|exists(path)|tell whether the path (directory or file) exists or not|
-|isabs(path)|tell whether the path is absolute or not|
 
 First we test some of the codes in the os module.
 ```Python
@@ -107,19 +92,54 @@ TBC: need shell commands on mac to give examples of os.system(command), I have t
 >>> os.system('terminal')
 32512
 ```
-Then we test some codes in the os.path module.
+
+### The functions in the os.path module
+|Function|     How to use it        |
+|--------|------------------|
+|basename(path)|remove the file path, only return the file name|
+|dirname(path)|remove the file name, only return the directory path|
+|join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
+|split(path)|split the file name from the path, return a tuple (f_path, f_name); even inputting a directory (i.e.the last part is a folder not file) or the file doesn't exist, it returns the last part as if it's file name|
+|splitext(path)|split the file name and the extension扩展名, return a tuple (f_name, f_extension)|
+|getsize(file)|return the size of the file, in bytes|
+|getatime(file)|return the time of the most recent visit in a float in seconds, can convert it further by `gmtime()`(Greenwich mean time) or `localtime()`(local time zone) in the `time` module|
+|getctime(file)|return the time of creation in a float in seconds, can convert it further by `gmtime()` or `localtime()` in the `time` module|
+|getmtime(file)|return the time of the most recent modification in a float in seconds, cn convert it further by `gmtime()` or `localtime()` in the `time` module|
+|exists(path)|tell whether the path (directory or file) exists or not|
+|isabs(path)|tell whether the path is absolute or not|
+|isdir(path)|tell whether the path exists as a directory|
+|isfile(path)|tell whether the path exists as a file|
+|islink(path)|tell whether the path exists as a link|
+
+
+We test some codes in the os.path module.
 ```Python
+>>> import os.path
+
+#basename and dirname
 >>> os.path.basename('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
 'Test'
 >>> os.path.basename('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test/test1.txt')
 'test1.txt'
 >>> os.path.dirname('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
 '/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16'
+
+#join, split and splitext
 >>> os.path.join('Test', 'Test2', 'Test3')
 'Test/Test2/Test3'
 >>> os.path.split('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
 ('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16', 'Test')
+>>> os.path.splitext('E:/A/B.txt') #even this path does not exist
+('E:/A/B', '.txt')
 
+#getatime
+>>> os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
+1600138718.5986953
+>>> import time
+>>> time.gmtime(os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=2, tm_min=58, tm_sec=38, tm_wday=1, tm_yday=259, tm_isdst=0)
+>>> time.localtime(os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=38, tm_wday=1, tm_yday=259, tm_isdst=0)
 ```
 
 ## Keys
