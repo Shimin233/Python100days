@@ -120,7 +120,7 @@ bool(2.33e5) #equals True
 Remark that `bool(0)` refers to `False`, while inputting any non-zero number it gives `True`. \
 Remark, True and False can be used exactly as 1 and 0 resp. in numeric calculations, like `True + False`, which gives `1`.
 - __Text type__ String字符串型 `str` : A collection of one or more characters put in single, double or triple quotes, 
-where a quote can be either a single or double quotation mark.
+where a quote can be either a single or double quotation mark. Do not mix single and double quotation marks in one expression.
 ```Python
 'Hello world!'
 “Hello world!"
@@ -151,6 +151,16 @@ stuff
   - Range `range`
   ```Python
   range(6)
+  #see its equivalent expressions by typing or printing it in IDLE
+  >>> range(6)
+  range(0, 6)
+  >>> print(range(6))
+  range(0, 6)
+  ```
+  You can see its contents by converting it to a list
+  ```Python
+  >>> list(range(0, 6))
+  [0, 1, 2, 3, 4, 5]
   ```
 - __Mapping type__ Dictionary `dict`: An unordered collection of data ina key:value pair form. A collection of such pairs is encloed in curly brackets.
 ```Python
