@@ -68,10 +68,12 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   4
   >>> print(0o100)
   64
-  >>> print(oxB)
+  >>> print(0xb) #lowercase can be used for both system symbol and the number itself
   11
   >>> print(0x100)
   256
+  >>> 0xB #this also works
+  11
   ```
   
   - Float浮点型 `float` : Real number, whose fractional component is written as a decimal part or scienfic notation.
