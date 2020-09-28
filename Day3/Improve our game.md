@@ -165,7 +165,7 @@ When the guess is not correct, we should keep repeating the two cycles A and B. 
 
 Each time the guess is different from the `secret`, it enters the `if...else` that tells the guess is too large or small, then allows another guess; afterwards, again go through the cycles A and B. Thus the `while` cycle should contain the sequence of the cycles A and B inside.
 
-But in the case of the first guess being correct, we can choose not to enter the `while` cycle at all; thus I add one more `if...else` in the beginning, called cycle A'.
+But in the case of the first guess being correct, we can choose not to enter the `while` cycle at all; thus I add one more `if...else` in the beginning, called cycle A'. The cycle A' is used to decide whether to enter the while cycle, i.e. the re-guessing cycle.
 
 ```Python
 import random    #import the random module before
@@ -173,7 +173,7 @@ secret = random.randint(1,10)   #assign the value randomly produced in the range
 print('---------My first game---------')
 temp=input('Guess one number:')
 guess=int(temp)
-if guess == secret:            #cycle A'; tell whether we need to enter the while cycle
+if guess == secret:            #cycle A'; tell whether we need to enter the while cycle, i.e.the re-guessing cycle
     print('')
 else:     
     while guess != secret:          
@@ -190,19 +190,19 @@ print('Right!')
 print('Happy guessing!')
 print('The End')
 ```
-Note that the condition of `while` cycle seems redundant. Because when the first guess is incorrect and thus we enter the `while` cycle for the first time, guess must not equal `secret`; but this condition plays its key role by telling whether the updated guess needs to stay in `while` cycle and another guess is allowed. 
+Note that the condition of `while` cycle seems redundant; because when the first guess is incorrect and thus we enter the `while` cycle for the first time, `guess` must not equal `secret`. However, this condition plays its key role by telling whether the updated guess needs to stay in `while` cycle and another guess is allowed. In another word, `while` condition is used to decide whether to exit the re-guessing cycle.
 
-Now the cycle A seems unnecessary, since staying in `while` cycle means guess must not equal `secret`. So we make our final revision!
+Now the cycle A seems unnecessary, since staying in `while` cycle means `guess` must not equal `secret`. So we make our final revision!
 ```Python
 import random    #import the random module before
 secret = random.randint(1,10)   #assign the value randomly produced in the range of (1,10) by randient function, to the variable called secret
 print('---------My first game---------')
 temp=input('Guess one number:')
 guess=int(temp)
-if guess == secret:
+if guess == secret: #this if...else, i.e. cycle A' decides whether to enter the re-guessing cycle
     print('')
 else:     
-    while guess != secret:
+    while guess != secret:  #this while condition decides whether to exit the re-guessing cycle
         if guess > secret:
             print('Too large')
         else:
