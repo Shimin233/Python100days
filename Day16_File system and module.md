@@ -110,6 +110,10 @@ TBC: need shell commands on mac to give examples of os.system(command), I have t
 |isdir(path)|tell whether the path exists as a directory|
 |isfile(path)|tell whether the path exists as a file|
 |islink(path)|tell whether the path exists as a link|
+|ismount(path)|tell whether the path exists as a (?) 挂载点（what is this)|
+|samefile(path1, path2)|tell whether the two paths refer to one same file|
+
+To glance at the absolute/relative path, see an example: in the computer there is a drive `E:`. For a file we can write its absolute path as `E:/A/B/text.txt`. Relatively inside the drive `E:`, it can be referred to by `A/B/text.txt` or `./A/B/text.txt`. And relatively in the folder B, its path can be `../text.txt`.
 
 
 We test some codes in the os.path module.
@@ -132,7 +136,7 @@ We test some codes in the os.path module.
 >>> os.path.splitext('E:/A/B.txt') #even this path does not exist
 ('E:/A/B', '.txt')
 
-#getatime
+#getatime, getctime, getmtime and gmtime(), localtime()
 >>> os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
 1600138718.5986953
 >>> import time
@@ -140,7 +144,33 @@ We test some codes in the os.path module.
 time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=2, tm_min=58, tm_sec=38, tm_wday=1, tm_yday=259, tm_isdst=0)
 >>> time.localtime(os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
 time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=38, tm_wday=1, tm_yday=259, tm_isdst=0)
+
+#check all the three times of the folder Test
+>>> time.localtime(os.path.getmtime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=35, tm_wday=1, tm_yday=259, tm_isdst=0)
+>>> time.localtime(os.path.getctime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=35, tm_wday=1, tm_yday=259, tm_isdst=0)
+>>> time.localtime(os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=15, tm_hour=10, tm_min=58, tm_sec=38, tm_wday=1, tm_yday=259, tm_isdst=0)
+
+#modify the folder Test by deleting Test2 folder inside it, all three times changed (because Test is a folder?)
+>>> time.localtime(os.path.getmtime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=28, tm_hour=14, tm_min=28, tm_sec=52, tm_wday=0, tm_yday=272, tm_isdst=0)
+>>> time.localtime(os.path.getctime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=28, tm_hour=14, tm_min=28, tm_sec=52, tm_wday=0, tm_yday=272, tm_isdst=0)
+>>> time.localtime(os.path.getatime('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test'))
+time.struct_time(tm_year=2020, tm_mon=9, tm_mday=28, tm_hour=14, tm_min=28, tm_sec=57, tm_wday=0, tm_yday=272, tm_isdst=0)
+
+#ismount, not sure what it means but I tried some
+>>> os.path.ismount('/Users')
+False
+>>> os.path.ismount('/Users/shiminfu/')
+False
+>>> os.path.ismount('/Users/shiminfu/Desktop/WithoutOneDrive/Studies/Python100days/Day16/Test')
+False
 ```
 
 ## Keys
-
+- module
+  - os 
+  - os.path module
