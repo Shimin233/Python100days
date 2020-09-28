@@ -37,7 +37,7 @@ There are other operators similar to `==`, shown as below
 | `is`  `is not`                                               | 身份运算符                     |
 | `in` `not in`                                                | 成员运算符                     |
 | `not` `or` `and`                                             | 逻辑运算符                     |
-| `=` `+=` `-=` `*=` `/=` `%=` `//=` `**=` `&=` `|=` `^=` `>>=` `<<=` | （复合）赋值运算符             |
+| `=` `+=` `-=` `*=` `/=` `%=` `//=` `**=` `&=` `\|=` `^=` `>>=` `<<=` | （复合）赋值运算符             |
 
 >**说明：** 在实际开发中，如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序。
 (Source: Jackfraud's notes https://github.com/Shimin233/Python-100-Days/blob/master/Day01-15/02.语言元素.md)
