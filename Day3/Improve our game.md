@@ -2,7 +2,7 @@
 There are some suggested improvemnt of the game we created during previous days, such as
 - give hints for the wrong guesses, for example, "your guess is larger or smaller than the correct one"
 - provide multiple chances for the players to guess
-- the correct guess can be random
+- the correct guess can be random\
 We shall introduce more techniques to be prepared for improving the game.
 
 ## Improvement1: Conditional branching条件分支
