@@ -207,7 +207,7 @@ False
 ```
 
 ### Assign a date type to a variable
-You can assign a value(data type) to a variable (explained in the next section) by typing data types, like the examples listed above.
+You can assign a value (of some data type) to a variable (to be explained in the next section) by `variable = value itself`. Like the examples listed for each data typein the last section, Python would automatically recognize the data type of the value. In this case, assignment is as simple as below
 ```Python
 x='Hello world!'
 y=1.5
@@ -217,7 +217,7 @@ v={'name':'Emily', 'age':12}
 u=bytearray(5)
 t=True
 ```
-You can also specify the data type using the constructor functions as below
+But sometimes, we need to specify the data type of some value to avoid Python from misunderstanding. We can use the constructor functions to specify the data type as below
 ```Python
 x=str('Hello world!')
 y=float(1.5)
@@ -227,11 +227,11 @@ v=dict(name='Emily', age=12)
 u=bytearray(5)
 t=bool(5)
 ```
-Note that the codes of `range`, `bytes`, `bytearray`, and `memoryview` are exactly the same in the two expressions above;
-those of `dict`, `frozenset` and some others differ by a little bit. See [summary from W3 schools](https://www.w3schools.com/python/python_datatypes.asp) for the full list (need VPN).
+Note that the codes of `range`, `bytes`, `bytearray`, and `memoryview` are exactly the same in the two piles of expressions above;
+those of `dict`, `frozenset` and some others differ by a little bit. See [summary from W3 schools](https://www.w3schools.com/python/python_datatypes.asp) for the full list (VPN needed).
 
 ### Change the data type
-Additionally, you can change the type of some data.
+Additionally, you can change the type of some data using the following functions. These functions include (to be confirmed) the constructor functions (sepcifying the data type is basically converting the data type).
 - `int()`: transform a numeric or a string to an integer; system (e.g. binary) can be specified
 - `float()`: transform a string or an integer to a float
 - `str()`: transform an arbitrary item to a string
@@ -256,7 +256,8 @@ For example,
 >>> chr(1)
 '\x01'
 ```
-Remark, we can use an existing function as a variable, like `str=5.99`; but it will cause problems, for example, you cannot use `str()` as it was originally, but only can use it as the variable you defined. So, avoid naming a variable as an existing function.
+Remark, we can use an existing function as a variable, like `str=5.99`; but it will cause problems, for example, you cannot use `str()` as it was originally, but only can use it as the variable you defined. So, avoid naming a variable as an existing function.\
+Tip about `int()` (see details by `help(int)`): this function can interpret a number or string to an integer. But "If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal in the given base"; for example, `int(11.2, base=16)` gives an error, `int(11, base=16)` gives 17 (converting base-16 to base-10).
 
 ## Name the variables
 A variable is an item to which we assign data. For example, the `x`, `y`, ..., `t` we had in the last section. There are some rules to name a variable.
