@@ -43,13 +43,13 @@ The functions in the os.path module
 |dirname(path)|remove the file name, only return the directory path|
 |join(path1\[, path2\[, ...]])|combine the path1, path2, ... into one path name|
 |split(path)|split the file name from the path, return a tuple (f_path, f_name); even inputting a directory (i.e.the last part is a folder not file) or the file doesn't exist, it returns the last part as if it's file name|
-|splittext(path)||
-|getsize(file)||
-|getatime(file)||
-|getctime(file)||
-|getmtime(file)||
-|exists(path)||
-|isabs(path)||
+|splitext(path) (splittext(path)?)|split the file name and the extension扩展名, return a tuple (f_name, f_extension)|
+|getsize(file)|return the size of the file, in bytes|
+|getatime(file)|return the time of the most recent visit in a float in seconds, can convert it further by `gmtime()` or `localtime()` in the `time` module|
+|getctime(file)|return the time of creation in a float in seconds, can convert it further by `gmtime()` or `localtime()` in the `time` module|
+|getmtime(file)|return the time of the most recent modification in a float in seconds, cn convert it further by `gmtime()` or `localtime()` in the `time` module|
+|exists(path)|tell whether the path (directory or file) exists or not|
+|isabs(path)|tell whether the path is absolute or not|
 
 First we test some of the codes in the os module.
 ```Python
