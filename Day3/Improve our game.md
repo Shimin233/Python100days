@@ -130,8 +130,8 @@ _Exercise2: Revise the codes such that if the first guess is correct, then there
   - Random module
 
 ## My solutions to the exercises
-Exercise1
-_To evaluate the number operations of `while` cycle, it needs rounds counting and `and` operator simultaneously, thus I tried an alternative solution:  deleting `while` and adding one more `if...else`._
+Exercise1\
+To evaluate the number operations of `while` cycle, it needs rounds counting and `and` operator simultaneously, thus I tried an alternative solution:  deleting `while` and adding one more `if...else`.
 ```Python
 print('---------My first game---------')
 temp=input('Guess one number:')
@@ -154,8 +154,8 @@ else:
 print('The End')
 ```
 
-Exercise2
-_Let's go through the whole program. There are at least a sequence of two `if...else` cycles that tells whether `guess ==, > or < secret`; call the one for `==` as the cycle A, and the one for `>, <` as the cycle B.
+Exercise2\
+Let's go through the whole program. There are at least a sequence of two `if...else` cycles that tells whether `guess ==, > or < secret`; call the one for `==` as the cycle A, and the one for `>, <` as the cycle B.
 
 A problem observed before is that no matter the first guess is correct or not, the program always asks for a second guess. This is fixed by moving `temp=input('Guess again:')   guess=int(temp)` to the end of the `while` cycle. Note it should be of the same level as the first `if...else` that tells `==`.
 
@@ -165,7 +165,7 @@ When the guess is not correct, we should keep repeating the two cycles A and B. 
 
 Each time the guess is different from the `secret`, it enters the `if...else` that tells the guess is too large or small, then allows another guess; afterwards, again go through the cycles A and B. Thus the `while` cycle should contain the sequence of the cycles A and B inside.
 
-But in the case of the first guess being correct, we can choose not to enter the `while` cycle at all; thus I add one more `if...else` in the beginning, called cycle A'._
+But in the case of the first guess being correct, we can choose not to enter the `while` cycle at all; thus I add one more `if...else` in the beginning, called cycle A'.
 
 ```Python
 import random    #import the random module before
