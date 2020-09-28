@@ -117,7 +117,7 @@ bool(4==5) #equals False
 bool(0) #equals False
 bool(2.33e5) #equals True
 ```
-Remark that `bool(0)` refers to `False`, while inputting any non-zero number it gives `True`. (to be confirmed)
+Remark that `bool(0)` refers to `False`, while inputting any non-zero number it gives `True`. \
 Remark, True and False can be used exactly as 1 and 0 resp. in numeric calculations, like `True + False`, which gives `1`.
 - __Text type__ String字符串型 `str` : A collection of one or more characters put in single, double or triple quotes, 
 where a quote can be either a single or double quotation mark.
