@@ -1,7 +1,7 @@
 Note that I use _italics_ to refer to applications/softwares in this article.
 
 ## Download Python
-Check the current version of Python you have by typing 
+Check the current version of Python you have by typing (note the space, the hyphen "-" and the uppercase "V")
 ```
 python -V
 ```
