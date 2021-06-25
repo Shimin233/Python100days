@@ -1,5 +1,5 @@
 ## The Pickle module
-The module of Pickle can store almost everything in the form of binary numbers and permanently(?).
+The module of Pickle can store almost everything in the form of binary numbers, permanently(?).
 
 Storing is called 'pickling' and reading 'unpickling'.
 
