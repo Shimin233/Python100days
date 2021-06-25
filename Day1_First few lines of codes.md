@@ -61,7 +61,7 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   8
   233333
   ```
-  Remark that there are two types of integers `int` and `long` in Python2.x, but they do not make many differences in Python.
+  Remark that there are two types of integers `int` and `long` in Python2.x, but they do not make many differences in Python3.
   Also, Python reads the binary system(labelled by B)二进制, such as binary 100 means 2^2=4 in the decimal system十进制; the octal number system(O)八进制, such as octal number 100 means decimal 8^2=64; the decimal system(D); and the hexadecimal system(X)十六进制, like hexadecimal B means decimal 11, hexa 100 means decimal 256.
   ```Python
   >>> print(0b100)
@@ -72,7 +72,7 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   11
   >>> print(0x100)
   256
-  >>> 0xB #this also works
+  >>> 0xB #this also works; 0xb, 0Xb, 0XB also give the same result, 11
   11
   ```
   
@@ -83,7 +83,7 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   2.33e7
   ```
   - Complex number `complex`: A number `x+yj` or `x+yJ` with a real part `x` and an imaginary part `y`, where `x` and `y` are floats. 
-  Note you must write 1j or 1J but not j or J.
+  Note you must write 1j or 1J but not j or J, since the letters are strings, a data type to be explained below.
   ```Python
   1+8j
   
@@ -101,7 +101,7 @@ There are several _categories_ labelled as __bold__ and then _subcategories_ in 
   25.0
   ```
   This also reveals that we may mix integers and floats (which are both numerics) but not strings and numerics (shown by `'hello'+8` before);
-  i.e. _subcategories_ are mixable but _categories_ are not (to be confirmed).
+  i.e. _subcategories_ are mixable but _categories_ are not (my conjecture, to be confirmed).
 - __Boolean__ `bool`: Data with one of two built-in values `True` or `False`. They are actually a special type of integers. Note T and F here must be capital.
 ```Python
 True
@@ -144,7 +144,7 @@ stuff
   ```Python
   ['apple', 'banana', 'orange']
   ```
-  - Tuple `tuple`: An order collection of one or more data itmes, not necessarily of the same type, put in parentheses.
+  - Tuple `tuple`: An ordered collection of one or more data itmes, not necessarily of the same type, put in parentheses.
   ```Python
   ('apple', 'banana', 'orange')
   ```
@@ -196,7 +196,7 @@ There is a function `type()` to look up the type of some data, shown as below
 >>>print(type(x)) #or just type(x)
 <class 'int'>
 ```
-Also, there is a function `isinstance()` to compare whether a data(?) is of an assumed type
+Also, there is a function `isinstance()` to compare whether a piece of data is of an assumed type
 ```Python
 >>> isinstance('233', str)
 True
