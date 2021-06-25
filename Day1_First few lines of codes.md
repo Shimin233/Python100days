@@ -1,7 +1,7 @@
 - I use #comments in the codes to add my comments which are not codes run by Python.
 - By the rules of markdown, the codes can be quoted using two pairs of triple backticks (two pairs of \`\`\`); furthermore, adding `Python` just after the first set of triple quotes
 backticks will quote codes as if they are in Python. Likewise for other programming languages.
-  - Note that the contents (codes) between two pairs of triple quotes must be in different lines from the triple quotes; otherwise a blank field of code quoting will be outputted. Because the codes themselves are mistaken as a language, which does not exist in most cases (except when you codes begin with, for example "Java", by coincidence).
+  - Note that the contents (codes) between two pairs of triple backticks must be in different lines from the triple quotes; otherwise a blank field of code quoting will be outputted. Because the codes themselves are mistaken as a language, which does not exist in most cases (except when you codes begin with, for example "Java", by coincidence).
   - Letting the codes look like Python ones by adding `Python` after the first set of triple quotes does not mean it must appear the same in actual programs; you can type incomplete codes here.
 
 ## First code: print()
