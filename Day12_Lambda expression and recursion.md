@@ -173,9 +173,9 @@ def fib(n):
     if n < 1:
         print('Error!')
         return -1
-    while (n-2)>0:
-        n3 = n2+n1
-        n1 = n2
+    while (n-2)>0:  #basically, n-th Fibonacci number f(n) is the sum of the previous two Fibonacci numbers, i.e. each iteration is in the scope of three numbers: n1, n2 and n3
+        n3 = n2+n1 # so first in the scope of n1=f(1), n2=f(2) and n3=f(3), obtain 3-rd number, f(3) here
+        n1 = n2 # then move our scope to the next three, n1=f(2), n2=f(3), n3=f(4) to compute f(4); repeat such move until n reaches 2, i.e. to the end
         n2 = n3
         n -= 1
 
