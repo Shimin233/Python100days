@@ -113,7 +113,7 @@ Remark that a good recursion should halt at some point; otherwise it will repeat
 >>> sys.setrecursionlimit(200)
 ```
 
-We can use recursion to define a __factorial__ function, that is 5!=120 for 5, 10!=3628800 for 10. First we can define a non-recursion version. Type the following in the module (saved as Python100days/Day12/Factorial.py):
+We can use recursion to define a __factorial__ function, that is 5!=5* 4* 3* 2* 1=120 for 5, 10!=10* 9* 8* ...* 3* 2* 1=3628800 for 10. First we can define a non-recursion version. Type the following in the module (saved as Python100days/Day12/Factorial.py):
 ```Python
 def factorial(n):
 	result = n
