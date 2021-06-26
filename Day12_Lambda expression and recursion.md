@@ -118,7 +118,7 @@ We can use recursion to define a __factorial__ function, that is 5!=5* 4* 3* 2* 
 def factorial(n):
 	result = n
 	for i in range(1, n):
-	    result *= i   #n |-> n*1 |-> n*1*2 |-> ... |-> n*1*2...*(n-2)*(n-1)
+	    result *= i   #n -> n*1 -> n*1*2 -> ... -> n*1*2...*(n-2)*(n-1)
 
 	return result    #the 'result's in factorial(n) are one local variable, with updation
 
@@ -141,7 +141,7 @@ def factorial(n):
     if n == 1:
         return 1
     else:
-        return n * factorial(n-1) 
+        return n * factorial(n-1)  # charasterisation of recursion: using itself in its definition
 
 number = int(input('Please insert a positive integer: '))
 result = factorial(number)
@@ -199,7 +199,7 @@ def f(n):
     elif n < 3: #or just type the second if...else independently from the first if...(without else) cycle
         return 1
     else:
-        return f(n-1)+f(n-2)
+        return f(n-1)+f(n-2)  # charasterisation of recursion: using itself in its definition
 
 result = f(20)
 if result != -1:
@@ -210,7 +210,7 @@ Running it gives the same result as Soln1.
 There are 6765 pairs of rabbits
 ```
 Recursion may take longer running time though it may simplifies the logic of the codes.
-Tip: recursion -> 分治思想, divide one complicated problem into simpler parts, to solve respectively
+Tip: recursion -> 分治思想, divide one complicated problem into simpler parts, to solve respectively; particularly divide itself into multiple copies of itslef, like we did in the definitions of `f(n)` and `factorial(n)`.
 
 ## Keys
 - Lambda expression
