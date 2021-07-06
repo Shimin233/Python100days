@@ -2,7 +2,8 @@
 
 Graphic User Interfaces 图形用户界面
 
-For introduction to GUI, we can use [EasyGui](http://easygui.sourceforge.net)).
+For introduction to GUI, we can use [EasyGui](http://easygui.sourceforge.net)). 
+Can also find [tutorial](http://easygui.sourceforge.net/tutorial.html) on this web.
 
 IDLE may cause problems to EasyGui, but using the following method it works well for me.
 
