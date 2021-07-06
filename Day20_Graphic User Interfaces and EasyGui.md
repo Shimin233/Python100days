@@ -32,5 +32,13 @@ then a window with Hello Word! and a 'OK' button pops out. Click 'OK' to close i
 4. This way you can run the gui interaction directly in python, welcome everyone to guide.
 
 There are alternative ways to import easygui, as below.
+```Python
+#method 2
+from easygui import *
+msgbox('Hello')
 
-
+#method 3
+import easygui as g
+g.msgbox('Hello')
+```
+Also, we can directly open the .py file by Python, avoiding using IDLE
