@@ -42,3 +42,6 @@ import easygui as g
 g.msgbox('Hello')
 ```
 Also, we can directly open the .py file by Python, avoiding using IDLE
+
+e.g. a game.py using easygui
+Can change appearances by altering easygui.py, like `choicebox`-`root_width`, `PORPORTIONAL_FONT_FAMILY`='NameFont'.
