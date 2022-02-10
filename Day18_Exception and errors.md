@@ -210,7 +210,7 @@ finally:
   f.close() #we want to close the file anyway
 ```  
 so that the file will be saved finally.
-  
+
 
 ### Raise
 We may induce an exception via raising one. The following codes can be typed directly in the shell.
@@ -256,6 +256,34 @@ Traceback (most recent call last):
 ZeroDivisionError: The denominator is zero #the explanation is added here
 ```
 
+### The fourth way to deal with exception
+We can specify what to do (in addition to the codes in `try` ) if there is no exception occurs. 
+
+Also multiple Errors can be added to detection step. 
+
+```Python
+try: 
+  codes
+except OSError:
+  how to handle this error
+except SyntaxError:
+  how to handle this error
+else:
+  print('There is no OSError or SyntaxError found :P')
+
+```
+
+### Tip
+If not typing a specific exception after `except`, like 
+
+```Python
+try:
+  codes
+except:
+  handle the error
+```
+then every possible errors will be checked and this is not time-effcient - not recommended!
+
 ## Summary
 - Exceptions and errors
   - AttributeError, AssertionError
@@ -265,3 +293,4 @@ ZeroDivisionError: The denominator is zero #the explanation is added here
   - try-except
   - try-except-finally
   - raise
+  - try-except-else
