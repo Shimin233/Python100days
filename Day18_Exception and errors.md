@@ -71,6 +71,7 @@ NameError: name 'undefinedName' is not defined
 - NotImplementedError
 
 - OSError: the error happening to the operation system, e.g. opening a non-existing file
+  - Almost the same as IOError, so it suffices to stick with OSError, as suggested in [the top answer here](https://stackoverflow.com/questions/29347790/difference-between-ioerror-and-oserror)
   - FileNotFoundError
     - Example (opening a file without extension)
 
